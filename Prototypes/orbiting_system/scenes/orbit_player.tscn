@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cpbhl20mruoi8"]
+
+[ext_resource type="Script" uid="uid://dqh1s30pw3x6r" path="res://Prototypes/orbiting_system/scenes/orbit_player.gd" id="1_fs8gp"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_3fesf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
+size = Vector2(126, 125)
+
+[node name="Player" type="CharacterBody2D" unique_id=160008220]
+script = ExtResource("1_fs8gp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213483872]
+texture = ExtResource("2_3fesf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489140582]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_b00go")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=943803678]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=465954612]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_b00go")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
