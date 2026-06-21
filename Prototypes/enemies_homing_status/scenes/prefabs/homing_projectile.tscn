@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://4la2kd7wauog"]
 
-[ext_resource type="Texture2D" uid="uid://31nd3ff76737" path="res://icon.svg" id="1_6mgpb"]
-[ext_resource type="Script" uid="uid://68wwesea77hj" path="res://scripts/homing_projectile.gd" id="1_7oyg5"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_6mgpb"]
+[ext_resource type="Script" uid="uid://68wwesea77hj" path="res://Prototypes/enemies_homing_status/scripts/homing_projectile.gd" id="1_7oyg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_morkd"]
 size = Vector2(126.666664, 126.666664)
