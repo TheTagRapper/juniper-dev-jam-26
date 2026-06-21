@@ -15,6 +15,7 @@ var stack_of_free_indexes = [3, 2, 1, 0]
 
 func _physics_process(delta: float) -> void:
 
+	# Selecting Movement
 	if Input.is_action_pressed("move_right"):
 		position.x += SPEED * delta
 	if Input.is_action_pressed("move_left"):
@@ -24,7 +25,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_up"):
 		position.y -= SPEED * delta
 	
-	
+	# Selecting Weapon
+	if Input.is_action_pressed("select_first_weapon"):
+		swap_weapons(1)
+	elif Input.is_action_just_pressed("select_second_weapon"):
+		swap_weapons(2)
+	elif Input.is_action_just_pressed("select_third_weapon"):
+		swap_weapons(3)
+	elif Input.is_action_just_pressed("select_fourth_weapon"):
+		swap_weapons(4)
 	
 	
 	move_and_slide()
@@ -56,15 +65,15 @@ func _physics_process(delta: float) -> void:
 				else:
 					orbit_index = i
 				
-				weapon_inv[i].position.x = position.x + cos(2*PI/projectile_count * i + time * orbit_speed) * orbit_distance
-				weapon_inv[i].position.y = position.y + sin(2*PI/projectile_count * i + time * orbit_speed) * orbit_distance
+				weapon_inv[i].position.x = position.x + cos(2*PI/projectile_count * orbit_index + time * orbit_speed) * orbit_distance
+				weapon_inv[i].position.y = position.y + sin(2*PI/projectile_count * orbit_index + time * orbit_speed) * orbit_distance
 
 
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Checking Collisions
-	if area.is_in_group("WEAPON"):
+	if area.is_in_group("WEAPON") and area.get_parent() not in weapon_inv:
 		add_weapon(area)
 		
 
@@ -91,4 +100,5 @@ func remove_weapon(weapon : Marker2D , weapon_index : int):
 	stack_of_free_indexes.push_back(weapon_index)
 
 func swap_weapons(selected_index : int):
-	holding_index = selected_index
+	if selected_index != null:
+		holding_index = selected_index - 1

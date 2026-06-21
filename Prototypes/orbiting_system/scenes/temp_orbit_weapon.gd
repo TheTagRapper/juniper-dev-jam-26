@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func add_index(index):
-	$Label.text = str(index)
+	$Label.text = str(index + 1)

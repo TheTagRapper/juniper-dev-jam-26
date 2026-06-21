@@ -7,6 +7,7 @@
 size = Vector2(63, 63)
 
 [node name="Player" type="CharacterBody2D" unique_id=160008220]
+motion_mode = 1
 script = ExtResource("1_fs8gp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213483872]
