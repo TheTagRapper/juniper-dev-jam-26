@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://11h6pequlw63"]
+
+[ext_resource type="PackedScene" uid="uid://dbtre4ioi783k" path="res://Prototypes/enemies_homing_status/scenes/prefabs/enemy.tscn" id="1_28aoi"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_pyidc"]
+[ext_resource type="Script" uid="uid://ny8g43pd6ht6" path="res://Prototypes/enemies_homing_status/scripts/fire_homing.gd" id="2_jh1ax"]
+[ext_resource type="Script" uid="uid://b2qy1wxu58r2h" path="res://Prototypes/enemies_homing_status/scripts/player_move.gd" id="2_vvh5c"]
+[ext_resource type="Script" uid="uid://bad6cqyu0hhrp" path="res://Prototypes/enemies_homing_status/scripts/orbits.gd" id="3_vvh5c"]
+
+[node name="root" type="Node2D" unique_id=829712457]
+
+[node name="homingEnemy" parent="." unique_id=1848215361 node_paths=PackedStringArray("target") instance=ExtResource("1_28aoi")]
+position = Vector2(187, 147)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("2_jh1ax")
+target = NodePath("../Player")
+cooldown = 3.0
+
+[node name="Player" type="Sprite2D" parent="." unique_id=644719326]
+position = Vector2(548, 310)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_pyidc")
+script = ExtResource("2_vvh5c")
+speed = 150.0
+
+[node name="Orbits" type="Node2D" parent="Player" unique_id=416435992]
+script = ExtResource("3_vvh5c")
+projectile_count = 3
+orbit_distance = 150.0
+orbit_speed = 4.0
