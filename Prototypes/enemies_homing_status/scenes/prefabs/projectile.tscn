@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c77jd5h0m18de"]
 
-[ext_resource type="Texture2D" uid="uid://31nd3ff76737" path="res://icon.svg" id="1_no6ob"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_no6ob"]
 
 [sub_resource type="GDScript" id="GDScript_grhsp"]
 script/source = "extends Area2D

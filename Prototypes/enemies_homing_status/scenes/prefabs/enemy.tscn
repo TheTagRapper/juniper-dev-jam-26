@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbtre4ioi783k"]
 
-[ext_resource type="Texture2D" uid="uid://31nd3ff76737" path="res://icon.svg" id="1_7k104"]
-[ext_resource type="Script" uid="uid://d08kmhekevivs" path="res://scripts/enemy.gd" id="2_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_7k104"]
+[ext_resource type="Script" uid="uid://d08kmhekevivs" path="res://Prototypes/enemies_homing_status/scripts/enemy.gd" id="2_4gyqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_morkd"]
 size = Vector2(128, 128)

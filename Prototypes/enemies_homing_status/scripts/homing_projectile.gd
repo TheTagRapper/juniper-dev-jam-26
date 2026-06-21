@@ -24,7 +24,7 @@ func move():
 	if direction:
 		position += direction * speed;
 
-func check_bounds():
+func check_bounds(): # change for room
 	if (global_position.x < 0 || global_position.y < 0 
 		|| global_position.x > get_viewport_rect().size.x 
 		|| global_position.y > get_viewport_rect().size.y):
