@@ -12,7 +12,7 @@ var time = 0
 # Inventory System
 var weapon_inv = [null, null, null, null]
 var holding_index = 0
-var stack_of_free_indexes = [3, 2, 1, 0]
+var stack_of_free_indexes = [3, 2, 1, 0] # CHANGE AS WEAPONS CAN NO LONGER BREAK
 
 func _physics_process(delta: float) -> void:
 
@@ -45,10 +45,10 @@ func _physics_process(delta: float) -> void:
 	for i in range(4):
 		if weapon_inv[i] != null:
 			
-			if weapon_inv[i].needs_detachment == true:
-				remove_weapon(i)
+			#if weapon_inv[i].needs_detachment == true:
+			#	remove_weapon(i)
 			# Check if it is being held in the hand
-			elif holding_index == i:
+			if holding_index == i:
 				# THIS IS TEMPORARY GUN CODE, WE WILL HANDLE SHOOTING
 				# THIS IS JUST ADDED FOR TESTING
 				var s_width = $Sprite2D.texture.get_width()
