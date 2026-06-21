@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://xjsh48xmbx3u"]
+
+[ext_resource type="Script" uid="uid://m8mxgc668jt" path="res://Prototypes/enemies_generic_ranged/generic/basic_enemy.gd" id="1_ouq68"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_044e1"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_044e1"]
+size = Vector2(100, 100)
+
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=652463472]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ouq68")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1682764321]
+texture = SubResource("PlaceholderTexture2D_044e1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=259055387]
+shape = SubResource("RectangleShape2D_044e1")
