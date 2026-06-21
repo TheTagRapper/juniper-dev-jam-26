@@ -8,14 +8,13 @@
 
 [node name="root" type="Node2D" unique_id=829712457]
 
-[node name="homingEnemy" parent="." unique_id=1848215361 node_paths=PackedStringArray("target") instance=ExtResource("1_28aoi")]
+[node name="homingEnemy" parent="." unique_id=1848215361 instance=ExtResource("1_28aoi")]
 position = Vector2(187, 147)
 scale = Vector2(0.4, 0.4)
 script = ExtResource("2_jh1ax")
-target = NodePath("../Player")
 cooldown = 3.0
 
-[node name="Player" type="Sprite2D" parent="." unique_id=644719326]
+[node name="Player" type="Sprite2D" parent="." unique_id=644719326 groups=["player"]]
 position = Vector2(548, 310)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_pyidc")
