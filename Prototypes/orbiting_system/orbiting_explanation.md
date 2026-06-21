@@ -21,11 +21,16 @@ In the `_physics_process` , we also detect if an input key is pressed and then c
 This is merely just updating the `holding_index` which will then cause the positions to update within the loop.
 But there should probably be some flag raised to allow an animation to play.
 
-I've also made a `remove_weapon` function that takes a weapon object and the weapon_index that breaks.
-It just calls a weapon's function to detach itself.
+I've also made a `remove_weapon` function the weapon_index that breaks.
+There is a check on the for loop checking for `need_detachment` flag.
+Then the function runs
+It raises a flag on the weapon to signal it is detached (`is_detached`).
 Then it is removed from the inv and the index is pushed to free index stack.
+Also, the necessary process for the weapon can run.
+This should run both in throwing and destruction
+This would need to change if we have a boomerang like weapon
 
 
 # Expansion
 
-I believe 
+The weapon needs a `is_detached` and `needs_detachment` flag

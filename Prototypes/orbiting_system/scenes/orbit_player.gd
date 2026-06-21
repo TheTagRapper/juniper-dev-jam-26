@@ -5,10 +5,11 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 var projectile_count = 3
-var orbit_speed = 4.0
-var orbit_distance = 150
+@export var orbit_speed = 4.0
+@export var orbit_distance = 150
 var time = 0
 
+# Inventory System
 var weapon_inv = [null, null, null, null]
 var holding_index = 0
 var stack_of_free_indexes = [3, 2, 1, 0]
@@ -44,8 +45,10 @@ func _physics_process(delta: float) -> void:
 	for i in range(4):
 		if weapon_inv[i] != null:
 			
+			if weapon_inv[i].needs_detachment == true:
+				remove_weapon(i)
 			# Check if it is being held in the hand
-			if holding_index == i:
+			elif holding_index == i:
 				# THIS IS TEMPORARY GUN CODE, WE WILL HANDLE SHOOTING
 				# THIS IS JUST ADDED FOR TESTING
 				var s_width = $Sprite2D.texture.get_width()
@@ -55,7 +58,6 @@ func _physics_process(delta: float) -> void:
 				weapon_inv[i].look_at(get_global_mouse_position())
 				weapon_inv[i].position.x = position.x + radius * cos(weapon_inv[i].rotation)
 				weapon_inv[i].position.y = position.y + radius * sin(weapon_inv[i].rotation)
-			
 			# Letting them orbit around
 			else:
 				# Need to make the orbits uniform
@@ -70,7 +72,7 @@ func _physics_process(delta: float) -> void:
 
 
 
-
+# Signal connected from the Area2D of
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Checking Collisions
 	if area.is_in_group("WEAPON") and area.get_parent() not in weapon_inv:
@@ -94,8 +96,9 @@ func add_weapon(area: Area2D):
 		
 		area.get_parent().add_index(weapon_index)
 
-func remove_weapon(weapon : Marker2D , weapon_index : int):
-	weapon.break_now()
+func remove_weapon(weapon_index : int):
+	weapon_inv[weapon_index].is_detached = true
+	weapon_inv[weapon_index].needs_detachment = false
 	weapon_inv[weapon_index] = null
 	stack_of_free_indexes.push_back(weapon_index)
 
