@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dn03pjstrfcol"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_l1ekt"]
+
+[sub_resource type="GDScript" id="GDScript_onrkg"]
+script/source = "extends Marker2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	get_global_mouse_position()
+"
+
+[node name="Muzzle" type="Marker2D" unique_id=1259149314]
+script = SubResource("GDScript_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2039491326]
+scale = Vector2(0.25, 0.125)
+texture = ExtResource("1_l1ekt")

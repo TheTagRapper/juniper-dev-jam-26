@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dklcgjvaaoea4"]
+
+[ext_resource type="PackedScene" uid="uid://cpbhl20mruoi8" path="res://Prototypes/orbiting_system/scenes/orbit_player.tscn" id="1_4qu35"]
+[ext_resource type="PackedScene" uid="uid://c5d3cyujsd31" path="res://Prototypes/orbiting_system/scenes/temp_orbit_weapon.tscn" id="2_wywth"]
+
+[node name="OrbitTestScene" type="Node2D" unique_id=1741474287]
+
+[node name="Player" parent="." unique_id=160008220 instance=ExtResource("1_4qu35")]
+position = Vector2(248, 136)
+
+[node name="TempOrbitWeapon" parent="." unique_id=2014769625 instance=ExtResource("2_wywth")]
+position = Vector2(496, 264)
+
+[node name="TempOrbitWeapon2" parent="." unique_id=2068506160 instance=ExtResource("2_wywth")]
+position = Vector2(528, 120)
+
+[node name="TempOrbitWeapon3" parent="." unique_id=975145058 instance=ExtResource("2_wywth")]
+position = Vector2(768, 88)
+
+[node name="TempOrbitWeapon4" parent="." unique_id=1913274985 instance=ExtResource("2_wywth")]
+position = Vector2(912, 224)
+
+[node name="TempOrbitWeapon5" parent="." unique_id=1368871836 instance=ExtResource("2_wywth")]
+position = Vector2(224, 368)
