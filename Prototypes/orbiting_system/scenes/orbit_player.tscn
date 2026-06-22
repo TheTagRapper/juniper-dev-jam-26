@@ -1,27 +1,51 @@
 [gd_scene format=3 uid="uid://cpbhl20mruoi8"]
 
 [ext_resource type="Script" uid="uid://dqh1s30pw3x6r" path="res://Prototypes/orbiting_system/scenes/orbit_player.gd" id="1_fs8gp"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_3fesf"]
+[ext_resource type="Texture2D" uid="uid://csjh03d2mqit2" path="res://Prototypes/orbiting_system/Sprites/sprite_idle.png" id="2_822rf"]
+[ext_resource type="Texture2D" uid="uid://xqeicspeflhx" path="res://Prototypes/orbiting_system/Sprites/sprite_forward_L.png" id="3_2xd6j"]
+[ext_resource type="Texture2D" uid="uid://boun42wud4ngt" path="res://Prototypes/orbiting_system/Sprites/sprite_forward_R.png" id="4_xkn8t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b00go"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_822rf")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2xd6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xkn8t")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
-size = Vector2(63, 63)
+size = Vector2(16, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=160008220]
 motion_mode = 1
 script = ExtResource("1_fs8gp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1213483872]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2125088442]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_3fesf")
+sprite_frames = SubResource("SpriteFrames_b00go")
+animation = &"walking"
+frame_progress = 0.80559766
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489140582]
 shape = SubResource("RectangleShape2D_b00go")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=943803678]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=465954612]
-visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_b00go")
 
