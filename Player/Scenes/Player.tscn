@@ -31,7 +31,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
 size = Vector2(16, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=160008220]
+[node name="Player" type="CharacterBody2D" unique_id=160008220 groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_7jgbj")
 
@@ -53,4 +53,9 @@ shape = SubResource("RectangleShape2D_b00go")
 [node name="Orbit" type="Node2D" parent="." unique_id=744397457]
 script = ExtResource("5_ejah4")
 
+[node name="HealthLabel" type="Label" parent="." unique_id=1640668230]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

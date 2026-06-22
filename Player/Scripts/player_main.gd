@@ -12,6 +12,8 @@ const SPEED = 300.0
 @export var orbit_speed = 3.0
 @export var orbit_distance = 60
 
+var max_health = 50
+var health = max_health
 
 var animation_state = "idle"
 func _physics_process(delta: float) -> void:
@@ -47,15 +49,30 @@ func _physics_process(delta: float) -> void:
 		$Orbit.swap_weapons(4)
 	
 	$Orbit.update_weapon_position(delta)
+	
+	if health <= 0:
+		death_motion()
+		
+	$HealthLabel.text = "Health:" + str(health)
 	move_and_slide()
 
+func death_motion():
+	queue_free()
 
 
 # Signal connected from the Area2D of
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Checking Collisions
-	if area.is_in_group("WEAPON") and area.get_parent() not in $Orbit.weapon_inv:
+	if area.is_in_group("PLAYER_WEAPON") and area.get_parent() not in $Orbit.weapon_inv:
 		$Orbit.add_weapon(area)
+	elif area.is_in_group("ENEMY_WEAPON"):
+		take_damage(area.dmg)
 		
 
-	
+func take_damage(dmg):
+	health -= dmg
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("ENEMY_WEAPON"):
+		take_damage(body.dmg)
