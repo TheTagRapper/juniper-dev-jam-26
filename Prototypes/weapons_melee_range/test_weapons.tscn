@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cirow6ii0ws7u"]
+
+[ext_resource type="PackedScene" uid="uid://ba51qyl5b43hi" path="res://Prototypes/weapons_melee_range/player.tscn" id="1_n0s5u"]
+
+[node name="TestWeapons" type="Node2D" unique_id=2045728141]
+
+[node name="Player" parent="." unique_id=321271101 instance=ExtResource("1_n0s5u")]
+position = Vector2(161, 122)
