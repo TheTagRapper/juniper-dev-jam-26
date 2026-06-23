@@ -10,7 +10,7 @@ var actual_speed:float
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	actual_speed = randf_range(speed1, speed2)
-	
+
 func _physics_process(delta):
 	var direction:Vector2 = (player.global_position - global_position).normalized()
 	velocity = direction * actual_speed
@@ -19,3 +19,5 @@ func _physics_process(delta):
 
 func take_damage(dmg:float):
 	health-=dmg
+	if health<=0:
+		queue_free()
