@@ -47,7 +47,8 @@ func update_weapon_position(delta: float) -> void:
 			# Check if it is being held in the hand
 			if holding_index == i:
 				# Point in a circle around the gun.
-				weapon_inv[i].look_at(get_global_mouse_position())
+				var target_angle = (get_global_mouse_position() - get_parent().global_position).angle()
+				weapon_inv[i].rotation = lerp_angle(weapon_inv[i].rotation, target_angle, delta * 10)
 				weapon_inv[i].position.x = player_position.x + radius * cos(weapon_inv[i].rotation)
 				weapon_inv[i].position.y = player_position.y + radius * sin(weapon_inv[i].rotation)
 			# Letting them orbit around

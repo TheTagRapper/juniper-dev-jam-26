@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://doaahq4tagtyp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k2my"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.9098039, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbo4o"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="game_hud" type="Control" unique_id=738017201]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="healthbar" type="ProgressBar" parent="." unique_id=1711732300]
+z_index = -1
+layout_mode = 1
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 214.0
+offset_bottom = 41.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4k2my")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hbo4o")
+value = 100.0
+rounded = true
+show_percentage = false

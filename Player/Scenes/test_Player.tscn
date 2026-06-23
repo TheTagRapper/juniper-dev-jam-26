@@ -2,14 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_wkj11"]
 [ext_resource type="PackedScene" uid="uid://c5d3cyujsd31" path="res://Prototypes/orbiting_system/scenes/temp_orbit_weapon.tscn" id="2_k2p3r"]
+[ext_resource type="PackedScene" uid="uid://e0lscddi4wmp" path="res://Prototypes/enemies_generic_ranged/ranged/ranged_enemy.tscn" id="3_k2p3r"]
 
 [node name="TestPlayer" type="Node2D" unique_id=479397746]
 
 [node name="Player" parent="." unique_id=160008220 instance=ExtResource("1_wkj11")]
 position = Vector2(352, 192)
-projectile_count = 3
 orbit_speed = 2.0
-orbit_distance = 60
 
 [node name="TempOrbitWeapon" parent="." unique_id=2014769625 instance=ExtResource("2_k2p3r")]
 position = Vector2(664, 200)
@@ -25,3 +24,7 @@ position = Vector2(432, 328)
 
 [node name="TempOrbitWeapon5" parent="." unique_id=2146114188 instance=ExtResource("2_k2p3r")]
 position = Vector2(864, 160)
+
+[node name="RangedEnemy" parent="." unique_id=998825045 instance=ExtResource("3_k2p3r")]
+position = Vector2(273, 117)
+scale = Vector2(0.2, 0.2)
