@@ -31,6 +31,8 @@ var has_shot_once:bool = false #ensures the enemy has shot atleast once before l
 @export var max_inaccuracy_angle:float = 15
 @export var max_inaccuracy_distance: float
 
+@export var dmg = 10
+
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	actual_speed = randf_range(speed1, speed2)

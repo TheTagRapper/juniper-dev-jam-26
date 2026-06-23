@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="juniper-dev-game-jam"
-run/main_scene="uid://11h6pequlw63"
+run/main_scene="uid://pdbktq3ydovw"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,7 @@ window/stretch/aspect="expand"
 
 player=""
 enemy=""
+ENEMY_WEAPON=""
 
 [input]
 
@@ -79,4 +80,5 @@ select_fourth_weapon={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
