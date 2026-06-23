@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://11h6pequlw63"]
 
-[ext_resource type="PackedScene" uid="uid://dbtre4ioi783k" path="res://Prototypes/enemies_homing_status/scenes/prefabs/enemy.tscn" id="1_28aoi"]
+[ext_resource type="PackedScene" uid="uid://dbtre4ioi783k" path="res://Prototypes/enemies_homing_status/scenes/prefabs/homing_enemy.tscn" id="1_28aoi"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_pyidc"]
 [ext_resource type="Script" uid="uid://ny8g43pd6ht6" path="res://Prototypes/enemies_homing_status/scripts/fire_homing.gd" id="2_jh1ax"]
 [ext_resource type="Script" uid="uid://b2qy1wxu58r2h" path="res://Prototypes/enemies_homing_status/scripts/player_move.gd" id="2_vvh5c"]

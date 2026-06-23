@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 func shoot():
 	$cooldown.start()
 	var weapon = attack.instantiate()
-	print("instantiated")
+	#print("instantiated")
 	$".".get_parent().add_child(weapon)
 	weapon.transform = $Emitter.global_transform
 	weapon.type = type
@@ -66,5 +66,5 @@ func shoot():
 
 func _on_cooldown_timeout() -> void:
 	shoot()
-	print("shot")
+	#print("shot")
 	pass # Replace with function body.
