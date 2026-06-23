@@ -9,8 +9,9 @@ var ranged_human = preload("res://Enemies/Ranged/Human/Scenes/ranged_enemy.tscn"
 @export var spawn_area_width : float 
 @export var spawn_area_height : float
 @export var min_dist_from_player : float
-@export var spawn_cooldown : float
+@export var subwave_cooldown : float = 15
 @export var wave_size : int
+@export var subwaves_remaining : int = 3
 
 # possible enemy spawns
 var enemy_list = [basic_human, homing_human, ranged_human]
@@ -19,11 +20,11 @@ var enemies_spawned_in_wave = 0
 var spawning = true
 
 var player
-var spawn_cooldown_remaining
+var subwave_cooldown_remaining
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	spawn_cooldown_remaining = spawn_cooldown
+	subwave_cooldown_remaining = subwave_cooldown
 
 func find_spawn_pos() -> Vector2:
 	var rx = randf()*spawn_area_width
@@ -45,6 +46,7 @@ func spawn_enemy():
 	var enemy = pick_enemy().instantiate()
 	add_child(enemy)
 	enemy.position = pos
+	enemy.add_to_group("enemy")
 	enemy.reparent(get_tree().root)
 	enemies_spawned_in_wave += 1
 	if enemies_spawned_in_wave >= wave_size:
@@ -53,8 +55,19 @@ func spawn_enemy():
 	
 
 func _process(delta: float) -> void:
+	if subwave_cooldown_remaining <= 0 && subwaves_remaining != 0:
+		spawning = true
+		subwave_cooldown_remaining = subwave_cooldown
+		subwaves_remaining -= 1
+	
 	if spawning:
-		spawn_cooldown_remaining -= delta
-		if spawn_cooldown_remaining <= 0:
-			spawn_cooldown_remaining = spawn_cooldown
-			spawn_enemy()
+		spawn_enemy()
+	else:
+		subwave_cooldown_remaining -= delta
+
+
+func _on_button_button_down() -> void:
+	#remove_enemy
+	var nme = get_tree().get_first_node_in_group("enemy")
+	if nme != null:
+		nme.queue_free()
