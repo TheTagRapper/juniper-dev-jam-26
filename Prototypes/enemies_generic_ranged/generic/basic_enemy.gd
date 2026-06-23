@@ -16,6 +16,7 @@ func _physics_process(delta):
 	velocity = direction * actual_speed
 	
 	move_and_slide()
+	
 
 func take_damage(dmg:float):
 	health-=dmg

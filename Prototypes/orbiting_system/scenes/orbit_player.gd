@@ -12,19 +12,29 @@ var time = 0
 # Inventory System
 var weapon_inv = [null, null, null, null]
 var holding_index = 0
-var stack_of_free_indexes = [3, 2, 1, 0]
-
+var stack_of_free_indexes = [3, 2, 1, 0] # CHANGE AS WEAPONS CAN NO LONGER BREAK
+var current_state = "idle"
 func _physics_process(delta: float) -> void:
 
 	# Selecting Movement
+	current_state = "idle"
 	if Input.is_action_pressed("move_right"):
 		position.x += SPEED * delta
+		current_state = "walking"
 	if Input.is_action_pressed("move_left"):
 		position.x -= SPEED * delta
+		current_state = "walking"
+
 	if Input.is_action_pressed("move_down"):
 		position.y += SPEED * delta
+		current_state = "walking"
+
 	if Input.is_action_pressed("move_up"):
 		position.y -= SPEED * delta
+		current_state = "walking"
+	
+	if current_state != $Sprite2D.animation:
+		$Sprite2D.play(current_state)
 	
 	# Selecting Weapon
 	if Input.is_action_pressed("select_first_weapon"):
@@ -45,14 +55,14 @@ func _physics_process(delta: float) -> void:
 	for i in range(4):
 		if weapon_inv[i] != null:
 			
-			if weapon_inv[i].needs_detachment == true:
-				remove_weapon(i)
+			#if weapon_inv[i].needs_detachment == true:
+			#	remove_weapon(i)
 			# Check if it is being held in the hand
-			elif holding_index == i:
+			if holding_index == i:
 				# THIS IS TEMPORARY GUN CODE, WE WILL HANDLE SHOOTING
 				# THIS IS JUST ADDED FOR TESTING
-				var s_width = $Sprite2D.texture.get_width()
-				var s_height = $Sprite2D.texture.get_height()
+				var s_width = 64 #$Sprite2D.texture.get_width()
+				var s_height = 55 #$Sprite2D.texture.get_height()
 				var radius = sqrt((s_width/8) ** 2 + (s_height/8) ** 2)
 				
 				weapon_inv[i].look_at(get_global_mouse_position())
