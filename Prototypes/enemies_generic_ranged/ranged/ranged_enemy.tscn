@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://06qi78ihxsl2" path="res://Prototypes/enemies_generic_ranged/ranged/ranged_enemy.gd" id="1_c6iic"]
 
 [sub_resource type="Curve" id="Curve_c6iic"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.61999995, 0.24719107), 0.92531395, 0.92531395, 0, 0, Vector2(1, 1), 2.9962544, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.61499995, 0.26966298), 0.92531395, 0.92531395, 0, 0, Vector2(0.99, 1), 2.9962544, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_count = 100
 
@@ -19,7 +19,9 @@ fill_from = Vector2(0, 0.030434782)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_044e1"]
 size = Vector2(100, 100)
 
-[node name="RangedEnemy" type="CharacterBody2D" unique_id=998825045]
+[node name="RangedEnemy" type="CharacterBody2D" unique_id=998825045 groups=["ENEMY_WEAPON"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_c6iic")
 speed2 = 120.0
 chase_range = 390.0
