@@ -23,6 +23,5 @@ texture = ExtResource("2_httkj")
 autostart = true
 
 [node name="Emitter" parent="." unique_id=899586957 instance=ExtResource("3_httkj")]
-position = Vector2(0, -2)
 
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

@@ -19,6 +19,7 @@ position = Vector2(-3, 6.5)
 shape = SubResource("RectangleShape2D_xpovn")
 
 [node name="attackDelete" type="Timer" parent="Area2D" unique_id=3532974]
+wait_time = 0.153
 autostart = true
 
 [connection signal="timeout" from="Area2D/attackDelete" to="." method="_on_attack_delete_timeout"]
