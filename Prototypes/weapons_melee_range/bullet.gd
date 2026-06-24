@@ -18,4 +18,7 @@ func _physics_process(delta: float) -> void:
 	#	queue_free
 	
 func _on_bullet_body_entered(body):
+	if body.is_in_group("enemy"):
+		body.take_damage(dmg)
+		print("EN HEALTH: " + str(dmg))
 	queue_free()

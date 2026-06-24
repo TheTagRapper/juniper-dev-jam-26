@@ -42,13 +42,14 @@ func _physics_process(delta):
 	previous_state = current_state
 	current_state = next_state
 	
-	match current_state:
-		enemy_state.chase:
-			chase_player(delta)
-		enemy_state.shooting:
-			shoot_player(delta)
-		_:
-			pass
+	if player != null:
+		match current_state:
+			enemy_state.chase:
+				chase_player(delta)
+			enemy_state.shooting:
+				shoot_player(delta)
+			_:
+				pass
 
 
 
@@ -96,3 +97,5 @@ func shoot():
 
 func take_damage(dmg:float):
 	health-=dmg
+	if health <= 0:
+		queue_free()

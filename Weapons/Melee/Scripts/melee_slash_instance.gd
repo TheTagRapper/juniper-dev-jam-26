@@ -27,8 +27,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("hit")
 		body.take_damage(dmg)
 		print("EN HEALTH: " + str(body.health))
-		durability -= 1
-		print(durability)
 	if(!body.is_in_group("player")):
 		$".".queue_free()
 

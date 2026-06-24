@@ -13,7 +13,7 @@ const SPEED = 300.0
 # Orbiting Variables
 @export var projectile_count = 3
 @export var orbit_speed = 3.0
-@export var orbit_distance = 60
+@export var orbit_distance = 100
 
 var max_health = 50
 var health = max_health
@@ -73,7 +73,7 @@ func death_motion():
 # Signal connected from the Area2D of
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	# Checking Collisions
-	if area.is_in_group("WEAPON") and area.get_parent() not in $Orbit.weapon_inv:
+	if area.get_parent().is_in_group("PLAYER_WEAPON") and area.get_parent() not in $Orbit.weapon_inv:
 		$Orbit.add_weapon(area)
 	elif area.is_in_group("ENEMY_WEAPON"):
 		take_damage(area.get_parent().dmg)
@@ -89,3 +89,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("ENEMY_WEAPON"):
 		print("the enemy damage = " + str(body.dmg))
 		take_damage(body.dmg)
+	

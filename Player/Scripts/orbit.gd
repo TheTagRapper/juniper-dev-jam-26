@@ -16,6 +16,8 @@ var s_width
 var s_height
 var radius
 
+@onready var emitter = get_tree().get_first_node_in_group("PlayerEmitter")
+
 func _ready():
 	parent = get_parent()
 	projectile_count = parent.projectile_count
@@ -40,6 +42,17 @@ func update_weapon_position(delta: float) -> void:
 	# Updating weapon positions
 	for i in range(4):
 		if weapon_inv[i] != null:
+			# Checking if durability is finished
+			if weapon_inv[i].type == 1:
+				if weapon_inv[i].durability <= 0:
+					remove_weapon(i)
+					return
+			if weapon_inv[i].type == 2:
+				if weapon_inv[i].ammo <= 0:
+					remove_weapon(i)
+					return
+			
+			
 			var player_position = get_parent().position
 			
 			#if weapon_inv[i].needs_detachment == true:
@@ -77,15 +90,29 @@ func add_weapon(area: Area2D):
 		# Is in the 
 		if no_of_weapons == 0:
 			holding_index = weapon_index
-		
-		area.get_parent().add_index(weapon_index)
+			swap_weapons(holding_index + 1)
 
 func remove_weapon(weapon_index : int):
-	weapon_inv[weapon_index].is_detached = true
-	weapon_inv[weapon_index].needs_detachment = false
+	weapon_inv[weapon_index].queue_free()
 	weapon_inv[weapon_index] = null
 	stack_of_free_indexes.push_back(weapon_index)
+	
+	for m in range(0,3):
+		if weapon_inv[m] != null:
+			holding_index = m
 
 func swap_weapons(selected_index : int):
-	if selected_index != null:
+	if weapon_inv[selected_index-1] != null:
 		holding_index = selected_index - 1
+		
+		var held = weapon_inv[holding_index]
+		
+		if weapon_inv[holding_index].is_in_group("MELEE") :
+			emitter.type = 1
+			emitter.dmg = held.dmg
+			emitter.durability = held.durability
+		elif held.is_in_group("RANGED"):
+			emitter.type = 2
+			emitter.dmg = held.dmg
+			emitter.ammo = held.ammo
+			emitter.speed = held.speed

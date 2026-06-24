@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cirow6ii0ws7u"]
 
 [ext_resource type="PackedScene" uid="uid://ba51qyl5b43hi" path="res://Prototypes/weapons_melee_range/player.tscn" id="1_n0s5u"]
+[ext_resource type="PackedScene" uid="uid://d33xvl7l65e2e" path="res://Weapons/Melee/Scenes/MeleeSlashInstance.tscn" id="2_hcymj"]
 
 [node name="TestWeapons" type="Node2D" unique_id=2045728141]
 
 [node name="Player" parent="." unique_id=321271101 instance=ExtResource("1_n0s5u")]
 position = Vector2(193, 115)
+
+[node name="attack" parent="." unique_id=571304640 instance=ExtResource("2_hcymj")]

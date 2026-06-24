@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://boun42wud4ngt" path="res://Prototypes/orbiting_system/Sprites/sprite_forward_R.png" id="4_xkn8t"]
 [ext_resource type="Script" uid="uid://w6bwje0eb0vx" path="res://Player/Scripts/orbit.gd" id="5_ejah4"]
 [ext_resource type="PackedScene" uid="uid://doaahq4tagtyp" path="res://Player/Scenes/game_hud.tscn" id="6_ejah4"]
+[ext_resource type="PackedScene" uid="uid://csmhy5tw574c0" path="res://Weapons/PlayerHeldWeaponEmitter.tscn" id="7_wyx6f"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b00go"]
 animations = [{
@@ -70,6 +71,8 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 0
+
+[node name="Emitter" parent="." unique_id=899586957 groups=["PlayerEmitter"] instance=ExtResource("7_wyx6f")]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
