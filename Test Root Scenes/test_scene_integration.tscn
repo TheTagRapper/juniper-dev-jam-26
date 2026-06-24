@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_ghf32"]
 [ext_resource type="PackedScene" uid="uid://bkl0ni4fryayd" path="res://Weapons/Melee/Scenes/MeleeWeapon.tscn" id="2_ia4qo"]
-[ext_resource type="PackedScene" uid="uid://mdfxy4a64fu5" path="res://Enemies/Generic/Human/Scenes/basic_enemy.tscn" id="3_1yskg"]
 [ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="4_43u5p"]
+[ext_resource type="PackedScene" uid="uid://bnebbodc2u6y4" path="res://Enemies/EnemySpawner.tscn" id="4_xulgj"]
 
 [node name="TestSceneIntegration" type="Node2D" unique_id=1637330267]
 
@@ -16,7 +16,6 @@ position = Vector2(155, -90)
 [node name="MeleePickup2" parent="." unique_id=779212395 instance=ExtResource("2_ia4qo")]
 position = Vector2(331, -116)
 
-[node name="BasicEnemy" parent="." unique_id=652463472 instance=ExtResource("3_1yskg")]
-position = Vector2(-417, -86)
-
 [node name="RangedWeapon" parent="." unique_id=417748901 instance=ExtResource("4_43u5p")]
+
+[node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("4_xulgj")]
