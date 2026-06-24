@@ -1,8 +1,8 @@
 extends Node2D
 
-var type = 1
+var type = 0
 const SPEED = 300.0
-var attack = preload("res://Weapons/Melee/Scenes/melee_range_weapon.tscn")
+var attack = preload("res://Weapons/Melee/Scenes/MeleeSlashInstance.tscn")
 var ranged = preload("res://Weapons/Ranged/Scenes/ranged_weapon.tscn")
 var durability = 20 
 var dmg = 10
@@ -31,26 +31,17 @@ func _process(delta: float) -> void:
 		scale.y = 1
 	pass
 	
-	#Selecting type of weapon
-	if Input.is_action_pressed("select_first_weapon"):
-		type = 1
-		print("Melee.")
-		
-	elif Input.is_action_just_pressed("select_second_weapon"):
-		type = 2
-		print("Range")
-	
-	
-	if Input.is_action_just_pressed("shoot") and type == 1 and durability > 0 and isready == true:
-		isready == false
-		slice()
-		$cooldown.start()
-		
-	elif Input.is_action_just_pressed("shoot") and type == 2 and ammo > 0 and isready == true:
-		isready == false
-		shoot()
-		$cooldown.start()
-	
+	if Input.is_action_just_pressed("shoot") and isready == true:			
+		if type == 1 and durability > 0:
+			isready == false
+			slice()
+			$cooldown.start()
+			
+		elif type == 2 and ammo > 0:
+			isready == false
+			shoot()
+			$cooldown.start()
+
 func slice():
 	
 	var weapon = attack.instantiate()

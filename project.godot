@@ -25,6 +25,9 @@ window/stretch/aspect="expand"
 player=""
 enemy=""
 ENEMY_WEAPON=""
+PLAYER_WEAPON=""
+MELEE=""
+PlayerEmitter=""
 
 [input]
 

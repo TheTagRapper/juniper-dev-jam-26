@@ -77,8 +77,10 @@ func add_weapon(area: Area2D):
 		# Is in the 
 		if no_of_weapons == 0:
 			holding_index = weapon_index
-		
-		area.get_parent().add_index(weapon_index)
+			if weapon_inv[weapon_index].is_in_group("MELEE") :
+				var emitter = get_tree().get_first_node_in_group("PlayerEmitter")
+				emitter.type = 1
+			#area.get_parent().add_index(weapon_index)
 
 func remove_weapon(weapon_index : int):
 	weapon_inv[weapon_index].is_detached = true
@@ -89,3 +91,7 @@ func remove_weapon(weapon_index : int):
 func swap_weapons(selected_index : int):
 	if selected_index != null:
 		holding_index = selected_index - 1
+		
+	if  weapon_inv[holding_index].is_in_group("MELEE_WEAPON") :
+		var emitter = get_tree().get_first_node_in_group("PlayerEmitter")
+		emitter.type = 1
