@@ -17,14 +17,14 @@ enum ENEMY_TYPE {BASIC_HUMAN, RANGED_HUMAN, HOMING_HUMAN}
 # possible enemy spawns
 var enemy_pool 
 var enemies_spawned_in_wave = 0
-var spawning = true
+var spawning = false
 
 var player
 var subwave_cooldown_remaining
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	subwave_cooldown_remaining = subwave_cooldown
+	subwave_cooldown_remaining = 0
 	enemy_pool = []
 	for m in enemy_list:
 		match m:
@@ -65,7 +65,7 @@ func spawn_enemy():
 	
 
 func _process(delta: float) -> void:
-	if subwave_cooldown_remaining <= 0 && subwaves_remaining != 0:
+	if subwave_cooldown_remaining <= 0 and subwaves_remaining > 0:
 		spawning = true
 		subwave_cooldown_remaining = subwave_cooldown
 		subwaves_remaining -= 1
