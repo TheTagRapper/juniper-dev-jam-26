@@ -43,9 +43,14 @@ func update_weapon_position(delta: float) -> void:
 	for i in range(4):
 		if weapon_inv[i] != null:
 			# Checking if durability is finished
-			if weapon_inv[i].durability <= 0:
-				remove_weapon(i)
-				return
+			if weapon_inv[i].type == 1:
+				if weapon_inv[i].durability <= 0:
+					remove_weapon(i)
+					return
+			if weapon_inv[i].type == 2:
+				if weapon_inv[i].ammo <= 0:
+					remove_weapon(i)
+					return
 			
 			
 			var player_position = get_parent().position
@@ -97,12 +102,12 @@ func remove_weapon(weapon_index : int):
 			holding_index = m
 
 func swap_weapons(selected_index : int):
-	if selected_index != null:
+	if weapon_inv[selected_index] != null:
 		holding_index = selected_index - 1
 		
 		var held = weapon_inv[holding_index]
 		
-		if  weapon_inv[holding_index].is_in_group("MELEE") :
+		if weapon_inv[holding_index].is_in_group("MELEE") :
 			emitter.type = 1
 			emitter.dmg = held.dmg
 			emitter.durability = held.durability

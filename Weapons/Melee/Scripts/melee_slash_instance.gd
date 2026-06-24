@@ -25,9 +25,8 @@ func _process(delta):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if(body.is_in_group("enemy")):
 		print("hit")
-		body.health -= dmg
-		durability -= 1
-		print(durability)
+		body.take_damage(dmg)
+		print("EN HEALTH: " + str(body.health))
 	if(!body.is_in_group("player")):
 		$".".queue_free()
 

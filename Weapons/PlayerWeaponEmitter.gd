@@ -31,16 +31,18 @@ func _process(delta: float) -> void:
 		scale.y = 1
 	pass
 	
-	if Input.is_action_just_pressed("shoot") and isready == true:			
-		if type == 1 and durability > 0:
-			isready == false
-			slice()
-			$cooldown.start()
-			
-		elif type == 2 and ammo > 0:
-			isready == false
-			shoot()
-			$cooldown.start()
+	var held = get_held()
+	if held != null:
+		if Input.is_action_just_pressed("shoot") and isready == true:			
+			if held.type == 1 and held.durability > 0:
+				isready == false
+				slice()
+				$cooldown.start()
+				
+			elif held.type == 2 and held.ammo > 0:
+				isready == false
+				shoot()
+				$cooldown.start()
 
 func get_held():
 	var orbit_system = get_parent().get_node("Orbit")
