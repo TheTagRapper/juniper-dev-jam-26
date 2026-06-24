@@ -3,16 +3,19 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 @export var attack = preload("res://Prototypes/weapons_melee_range/melee_range_weapon.tscn")
-
-@export var durability = 20 
+@export var ranged = preload("res://Prototypes/weapons_melee_range/ranged_weapon.tscn")
+var durability = 20 
 @export var dmg = 10
 @export var type = ["MELEE", "RANGE"]
 @export var speed = 100
-@export var ammo = 10
+var ammo = 10
 @export var dir: Vector2
+var weapon
+var cooldown = false
 
-var cool_time = 3
+var cool_time = 0.5
 
+@onready var muzzle: Marker2D = $Emitter/Marker2D
 
 func _ready():
 	$cooldown.set_wait_time(cool_time)
@@ -29,6 +32,9 @@ func _physics_process(delta: float) -> void:
 		position.y += SPEED * delta
 	if Input.is_action_pressed("move_up"):
 		position.y -= SPEED * delta
+		
+	
+		
 	
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -36,35 +42,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	#Selecting type of weapon
-	if Input.is_action_pressed("select_first_weapon"):
-		type = "MELEE"
-		#$Sprite2D.texture=ResourceLoader.load("res://images/swipe.png")
-		print("Melee.")
-		
-	elif Input.is_action_just_pressed("select_second_weapon"):
-		type = "RANGE"
-		#$Sprite2D.texture=ResourceLoader.load("res://icon.svg")
-		$CollisionShape2D.scale *= 0.5
-		print("Range")
 	
 	move_and_slide()
 	
 	
 	
-func shoot():
-	$cooldown.start()
-	var weapon = attack.instantiate()
-	print("instantiated")
-	$".".get_parent().add_child(weapon)
-	weapon.transform = $Emitter.global_transform
-	weapon.type = type
-	weapon.dmg = dmg 
+
+	
+	
+
 	
 
 
 
-func _on_cooldown_timeout() -> void:
-	shoot()
-	print("shot")
-	pass # Replace with function body.
+#func _on_cooldown_timeout() -> void:
+#	cooldown = false
+#	print("cooldown up")
+#	pass # Replace with function body.
