@@ -1,7 +1,7 @@
 extends Node2D
 
 var dmg = 10
-var durability = 5
+var durability = 10
 var type = 1
 
 

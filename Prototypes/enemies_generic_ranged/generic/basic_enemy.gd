@@ -14,10 +14,11 @@ func _ready():
 	actual_speed = randf_range(speed1, speed2)
 
 func _physics_process(delta):
-	var direction:Vector2 = (player.global_position - global_position).normalized()
-	velocity = direction * actual_speed
-	
-	move_and_slide()
+	if player != null:
+		var direction:Vector2 = (player.global_position - global_position).normalized()
+		velocity = direction * actual_speed
+		
+		move_and_slide()
 	
 
 func take_damage(dmg1:float):

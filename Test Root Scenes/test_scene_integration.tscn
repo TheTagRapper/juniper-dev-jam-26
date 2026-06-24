@@ -1,21 +1,44 @@
 [gd_scene format=3 uid="uid://l533rdgbyns3"]
 
 [ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_ghf32"]
+[ext_resource type="Texture2D" uid="uid://b1gpy1ly5w7ts" path="res://images/temp_background.png" id="1_xulgj"]
 [ext_resource type="PackedScene" uid="uid://bkl0ni4fryayd" path="res://Weapons/Melee/Scenes/MeleeWeapon.tscn" id="2_ia4qo"]
 [ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="4_43u5p"]
 [ext_resource type="PackedScene" uid="uid://bnebbodc2u6y4" path="res://Enemies/EnemySpawner.tscn" id="4_xulgj"]
 
 [node name="TestSceneIntegration" type="Node2D" unique_id=1637330267]
 
+[node name="Background" type="TextureRect" parent="." unique_id=563816468]
+offset_left = -888.0
+offset_top = -459.00003
+offset_right = 17.83435
+offset_bottom = 45.496796
+scale = Vector2(2.4485714, 2.335)
+mouse_filter = 2
+texture = ExtResource("1_xulgj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=534987862]
+position = Vector2(309.15988, 149.0364)
+scale = Vector2(0.4084014, 0.42826554)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" unique_id=2005175298]
+polygon = PackedVector2Array(-664, -254, 1336, -215, 1360, 713, -636.00006, 706, -636.00006, -226, -752, -348, -750.00006, 817, 1467, 841, 1463, -350)
+
 [node name="Player" parent="." unique_id=160008220 instance=ExtResource("1_ghf32")]
-orbit_speed = 50.0
+orbit_speed = 10.0
 
 [node name="MeleePickup" parent="." unique_id=635360489 instance=ExtResource("2_ia4qo")]
 position = Vector2(155, -90)
 
 [node name="MeleePickup2" parent="." unique_id=779212395 instance=ExtResource("2_ia4qo")]
-position = Vector2(331, -116)
+position = Vector2(333, -105)
 
 [node name="RangedWeapon" parent="." unique_id=417748901 instance=ExtResource("4_43u5p")]
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("4_xulgj")]
+subwaves_remaining = 1
+
+[node name="MeleeWeapon" parent="." unique_id=17539703 instance=ExtResource("2_ia4qo")]
+position = Vector2(333, -105)
+
+[node name="RangedWeapon2" parent="." unique_id=1439147064 instance=ExtResource("4_43u5p")]

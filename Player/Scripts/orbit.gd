@@ -102,7 +102,7 @@ func remove_weapon(weapon_index : int):
 			holding_index = m
 
 func swap_weapons(selected_index : int):
-	if weapon_inv[selected_index] != null:
+	if weapon_inv[selected_index-1] != null:
 		holding_index = selected_index - 1
 		
 		var held = weapon_inv[holding_index]

@@ -89,3 +89,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("ENEMY_WEAPON"):
 		print("the enemy damage = " + str(body.dmg))
 		take_damage(body.dmg)
+	
