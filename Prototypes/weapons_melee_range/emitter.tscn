@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ongs6d0ht84g"]
+
+[ext_resource type="Script" uid="uid://88dq7xfh6u6w" path="res://Prototypes/weapons_melee_range/emitter.gd" id="1_fj4tf"]
+
+[node name="Emitter" type="Node2D" unique_id=899586957]
+position = Vector2(96, 12)
+script = ExtResource("1_fj4tf")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1590129724]
+position = Vector2(83, 0)
+
+[node name="cooldown" type="Timer" parent="." unique_id=488557435]
+wait_time = 0.402
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
