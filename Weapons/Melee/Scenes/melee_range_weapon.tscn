@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d33xvl7l65e2e"]
+
+[ext_resource type="Script" uid="uid://c33hea04ch3p" path="res://Prototypes/weapons_melee_range/melee_range_weapon.gd" id="1_amjq2"]
+[ext_resource type="Texture2D" uid="uid://bb8okkkfnpc2p" path="res://images/swipe.png" id="1_ob3mi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpovn"]
+size = Vector2(68, 95)
+
+[node name="attack" type="Node2D" unique_id=571304640]
+script = ExtResource("1_amjq2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1039310092]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=398964958]
+texture = ExtResource("1_ob3mi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1777389878]
+position = Vector2(-3, 6.5)
+shape = SubResource("RectangleShape2D_xpovn")
+
+[node name="attackDelete" type="Timer" parent="Area2D" unique_id=3532974]
+wait_time = 0.153
+autostart = true
+
+[connection signal="timeout" from="Area2D/attackDelete" to="." method="_on_attack_delete_timeout"]

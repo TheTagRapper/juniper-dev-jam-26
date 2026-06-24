@@ -17,9 +17,6 @@ shape = SubResource("RectangleShape2D_amjq2")
 scale = Vector2(0.65625, 0.7109375)
 texture = ExtResource("2_httkj")
 
-[node name="Emitter" type="Node2D" parent="." unique_id=1591087937]
-position = Vector2(70, 0)
-
 [node name="cooldown" type="Timer" parent="." unique_id=272939528]
 autostart = true
 

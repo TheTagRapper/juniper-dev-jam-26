@@ -2,8 +2,8 @@ extends Node2D
 
 var type = 1
 const SPEED = 300.0
-var attack = preload("res://Prototypes/weapons_melee_range/melee_range_weapon.tscn")
-var ranged = preload("res://Prototypes/weapons_melee_range/ranged_weapon.tscn")
+var attack = preload("res://Weapons/Melee/Scenes/melee_range_weapon.tscn")
+var ranged = preload("res://Weapons/Ranged/Scenes/ranged_weapon.tscn")
 var durability = 20 
 var dmg = 10
 var speed = 100

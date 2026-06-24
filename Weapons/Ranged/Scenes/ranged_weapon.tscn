@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://mxxsvoxd7d2x"]
+
+[ext_resource type="Script" uid="uid://oxjdscl5ooj5" path="res://Prototypes/weapons_melee_range/bullet.gd" id="1_37ph7"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="2_37ph7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4st8"]
+size = Vector2(47, 58)
+
+[node name="Ranged" type="Area2D" unique_id=1950641176]
+position = Vector2(53, 51)
+script = ExtResource("1_37ph7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1138623192]
+position = Vector2(1, 1)
+scale = Vector2(0.3515625, 0.3515625)
+texture = ExtResource("2_37ph7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1847199360]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_u4st8")
