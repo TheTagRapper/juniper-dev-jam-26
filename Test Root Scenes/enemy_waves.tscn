@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://g1gcx7p060os"]
+
+[ext_resource type="Script" uid="uid://bidn1hu8q3mgs" path="res://Enemies/enemy_spawner.gd" id="1_voiga"]
+[ext_resource type="PackedScene" uid="uid://ba51qyl5b43hi" path="res://Prototypes/weapons_melee_range/player.tscn" id="2_dnoym"]
+[ext_resource type="Script" uid="uid://nqb5rfp6scea" path="res://Test Root Scenes/temp_enemy_destroyer.gd" id="3_febc3"]
+
+[node name="EnemyWaves" type="Node2D" unique_id=736508702]
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=591317798]
+script = ExtResource("1_voiga")
+spawn_area_width = 1152.0
+spawn_area_height = 648.0
+min_dist_from_player = 100.0
+wave_size = 3
+
+[node name="Player" parent="." unique_id=321271101 instance=ExtResource("2_dnoym")]
+position = Vector2(395, 342)
+
+[node name="Button" type="Button" parent="." unique_id=1828953723]
+offset_left = 631.0
+offset_top = 91.0
+offset_right = 749.0
+offset_bottom = 167.0
+script = ExtResource("3_febc3")
+
+[connection signal="button_down" from="Button" to="EnemySpawner" method="_on_button_button_down"]

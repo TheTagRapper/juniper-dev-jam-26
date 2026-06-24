@@ -2,7 +2,7 @@ extends Node2D
 
 @export var cooldown : float
 
-var projectile_tscn = preload("res://Enemies/Homing/Human/Scripts/homing_projectile.gd")
+var projectile_tscn = preload("../scenes/prefabs/homing_projectile.tscn")
 var cooldown_remaining : float
 var target : Node2D
 

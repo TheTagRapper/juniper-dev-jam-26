@@ -47,15 +47,22 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
+func shoot():
+	$cooldown.start()
+	var weapon = attack.instantiate()
+	#print("instantiated")
+	$".".get_parent().add_child(weapon)
+	weapon.transform = $Emitter.global_transform
+	weapon.type = type
+	weapon.dmg = dmg 
+	
+
+
+
+func _on_cooldown_timeout() -> void:
+	shoot()
+	#print("shot")
+	pass # Replace with function body.
 
 	
 	
-
-	
-
-
-
-#func _on_cooldown_timeout() -> void:
-#	cooldown = false
-#	print("cooldown up")
-#	pass # Replace with function body.

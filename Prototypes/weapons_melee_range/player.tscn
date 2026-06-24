@@ -5,19 +5,20 @@
 [ext_resource type="PackedScene" uid="uid://ongs6d0ht84g" path="res://Prototypes/weapons_melee_range/emitter.tscn" id="3_httkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_amjq2"]
-size = Vector2(95, 101)
+size = Vector2(84, 92)
 
-[node name="Player" type="CharacterBody2D" unique_id=321271101]
+[node name="Player" type="CharacterBody2D" unique_id=321271101 groups=["player"]]
 script = ExtResource("1_5cf6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=819445715]
-position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_amjq2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1883605121]
-position = Vector2(-3, -2)
 scale = Vector2(0.65625, 0.7109375)
 texture = ExtResource("2_httkj")
+
+[node name="Emitter" type="Node2D" parent="." unique_id=1591087937]
+position = Vector2(70, 0)
 
 [node name="cooldown" type="Timer" parent="." unique_id=272939528]
 autostart = true
