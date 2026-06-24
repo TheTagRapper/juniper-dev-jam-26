@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bkl0ni4fryayd"]
 
+[ext_resource type="Script" uid="uid://dnftbf5t1qo5i" path="res://Weapons/Melee/Scenes/melee_weapon.gd" id="1_on516"]
 [ext_resource type="Texture2D" uid="uid://bb8okkkfnpc2p" path="res://images/swipe.png" id="1_phffg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
 size = Vector2(56, 72)
 
 [node name="MeleeWeapon" type="Node2D" unique_id=635360489 groups=["MELEE", "PLAYER_WEAPON"]]
+script = ExtResource("1_on516")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1046098205]
 texture = ExtResource("1_phffg")

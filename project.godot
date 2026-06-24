@@ -28,6 +28,7 @@ ENEMY_WEAPON=""
 PLAYER_WEAPON=""
 MELEE=""
 PlayerEmitter=""
+RANGED=""
 
 [input]
 

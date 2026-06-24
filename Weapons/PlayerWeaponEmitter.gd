@@ -3,7 +3,7 @@ extends Node2D
 var type = 0
 const SPEED = 300.0
 var attack = preload("res://Weapons/Melee/Scenes/MeleeSlashInstance.tscn")
-var ranged = preload("res://Weapons/Ranged/Scenes/ranged_weapon.tscn")
+var ranged = preload("res://Weapons/Ranged/Scenes/RangedWeaponInstance.tscn")
 var durability = 20 
 var dmg = 10
 var speed = 100
@@ -42,32 +42,41 @@ func _process(delta: float) -> void:
 			shoot()
 			$cooldown.start()
 
+func get_held():
+	var orbit_system = get_parent().get_node("Orbit")
+	return orbit_system.weapon_inv[orbit_system.holding_index]
+	
+
+
 func slice():
-	
-	var weapon = attack.instantiate()
-	durability -= 1
-	print(durability)
-	$".".get_parent().add_child(weapon)
-	weapon.global_position = muzzle.global_position
-	weapon.type = type
-	weapon.dmg = dmg 
-	weapon.rotation = rotation
-	
-	print("instantiated melee")
+	var held = get_held()
+	if held != null:
+		var weapon = attack.instantiate()
+		held.durability -= 1
+		print(held.durability)
+		$".".get_parent().add_child(weapon)
+		weapon.global_position = muzzle.global_position
+		weapon.type = type
+		weapon.dmg = held.dmg 
+		weapon.rotation = rotation
+		
+		print("instantiated melee")
+		
 		
 func shoot(): 
-	
-	var weapon2 = ranged.instantiate()
-	#cool_time = 0.2
-	weapon2.speed = speed
-	ammo -= 1
-	$".".get_parent().add_child(weapon2)
-	weapon2.global_position = muzzle.global_position
-	weapon2.type = type
-	weapon2.dmg = dmg 
-	weapon2.rotation = rotation
-	
-	print("instantiated ranged")
+	var held = get_held()
+	if held != null:
+		var weapon2 = ranged.instantiate()
+		#cool_time = 0.2
+		weapon2.speed = held.speed
+		held.ammo -= 1
+		$".".get_parent().add_child(weapon2)
+		weapon2.global_position = muzzle.global_position
+		weapon2.type = type
+		weapon2.dmg = held.dmg 
+		weapon2.rotation = rotation
+		
+		print("instantiated ranged")
 
 
 func _on_cooldown_timeout() -> void:

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_ghf32"]
 [ext_resource type="PackedScene" uid="uid://bkl0ni4fryayd" path="res://Weapons/Melee/Scenes/MeleeWeapon.tscn" id="2_ia4qo"]
+[ext_resource type="PackedScene" uid="uid://mdfxy4a64fu5" path="res://Enemies/Generic/Human/Scenes/basic_enemy.tscn" id="3_1yskg"]
 
 [node name="TestSceneIntegration" type="Node2D" unique_id=1637330267]
 
@@ -15,3 +16,6 @@ position = Vector2(331, -116)
 
 [node name="MeleePickup3" parent="." unique_id=1907051845 instance=ExtResource("2_ia4qo")]
 position = Vector2(310, -180)
+
+[node name="BasicEnemy" parent="." unique_id=652463472 instance=ExtResource("3_1yskg")]
+position = Vector2(-417, -86)
