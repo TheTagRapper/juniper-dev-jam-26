@@ -15,7 +15,7 @@ var cooldown = false
 
 var cool_time = 0.5
 
-@onready var muzzle: Marker2D = $Emitter/Marker2D
+@onready var muzzle: Marker2D = $WeaponEmitter/Marker2D
 
 func _ready():
 	$cooldown.set_wait_time(cool_time)
@@ -52,7 +52,7 @@ func shoot():
 	var weapon = attack.instantiate()
 	#print("instantiated")
 	$".".get_parent().add_child(weapon)
-	weapon.transform = $Emitter.global_transform
+	weapon.transform = $WeaponEmitter.global_transform
 	weapon.type = type
 	weapon.dmg = dmg 
 	
@@ -60,7 +60,7 @@ func shoot():
 
 
 func _on_cooldown_timeout() -> void:
-	shoot()
+	#shoot()
 	#print("shot")
 	pass # Replace with function body.
 
