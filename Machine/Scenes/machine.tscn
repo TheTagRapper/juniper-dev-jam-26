@@ -79,6 +79,8 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=1409910503 node_paths=PackedStringArray("edges")]
 script = ExtResource("1_k4xoj")
 edges = [NodePath("Left"), NodePath("Right"), NodePath("Top"), NodePath("Bottom")]
+icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
+weapon_pool_ENUMS = Array[int]([0, 1])
 
 [node name="Left" type="Marker2D" parent="." unique_id=227298862]
 position = Vector2(102, 285)
@@ -99,7 +101,6 @@ rotation = -1.5707964
 position = Vector2(451.99997, 134.99997)
 script = ExtResource("2_in6m0")
 pickups = [NodePath("../Pickups/First"), NodePath("../Pickups/Second")]
-icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
 
 [node name="Body" type="Node2D" parent="Machine" unique_id=103873373]
 scale = Vector2(2.26, 2.26)

@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_ghf32"]
 [ext_resource type="Texture2D" uid="uid://b1gpy1ly5w7ts" path="res://images/temp_background.png" id="1_xulgj"]
-[ext_resource type="PackedScene" uid="uid://bkl0ni4fryayd" path="res://Weapons/Melee/Scenes/MeleeWeapon.tscn" id="2_ia4qo"]
-[ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="4_43u5p"]
 [ext_resource type="PackedScene" uid="uid://bnebbodc2u6y4" path="res://Enemies/EnemySpawner.tscn" id="4_xulgj"]
+[ext_resource type="PackedScene" uid="uid://blkqg6rid0oyu" path="res://Machine/Scenes/machine.tscn" id="6_5yi3d"]
 
 [node name="TestSceneIntegration" type="Node2D" unique_id=1637330267]
 
@@ -27,20 +26,20 @@ polygon = PackedVector2Array(-664, -254, 1336, -215, 1360, 713, -636.00006, 706,
 [node name="Player" parent="." unique_id=160008220 instance=ExtResource("1_ghf32")]
 orbit_speed = 10.0
 
-[node name="MeleePickup" parent="." unique_id=635360489 instance=ExtResource("2_ia4qo")]
-position = Vector2(155, -90)
-
-[node name="MeleePickup2" parent="." unique_id=779212395 instance=ExtResource("2_ia4qo")]
-position = Vector2(333, -105)
-
-[node name="RangedWeapon" parent="." unique_id=417748901 instance=ExtResource("4_43u5p")]
-position = Vector2(-110, -79)
-
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("4_xulgj")]
 subwaves_remaining = 1
 
-[node name="MeleeWeapon" parent="." unique_id=17539703 instance=ExtResource("2_ia4qo")]
-position = Vector2(333, -105)
+[node name="Node2D" parent="." unique_id=1409910503 node_paths=PackedStringArray("edges") instance=ExtResource("6_5yi3d")]
+edges = [NodePath("../Left"), NodePath("../Right"), NodePath("../Top"), NodePath("../Bottom")]
 
-[node name="RangedWeapon2" parent="." unique_id=1439147064 instance=ExtResource("4_43u5p")]
-position = Vector2(51, -78)
+[node name="Top" type="Marker2D" parent="." unique_id=1754548673]
+position = Vector2(369, -332)
+
+[node name="Bottom" type="Marker2D" parent="." unique_id=1726680873]
+position = Vector2(405, 582)
+
+[node name="Left" type="Marker2D" parent="." unique_id=110089848]
+position = Vector2(-754, 247)
+
+[node name="Right" type="Marker2D" parent="." unique_id=1236995909]
+position = Vector2(1200, 205)

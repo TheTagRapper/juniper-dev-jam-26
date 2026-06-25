@@ -24,7 +24,7 @@ var subwave_cooldown_remaining
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	subwave_cooldown_remaining = 0
+	subwave_cooldown_remaining = subwave_cooldown
 	enemy_pool = []
 	for m in enemy_list:
 		match m:

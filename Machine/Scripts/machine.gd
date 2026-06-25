@@ -1,14 +1,17 @@
 extends Sprite2D
 
 @export var pickups: Array[Node2D]
-@export var icons: Array[Texture2D]
+@onready var icons: Array[Texture2D] = $"..".icons
 
 @onready var mainBody: Sprite2D = $Body/Main
 @onready var arm: Sprite2D = $Body/Arm
 
 @onready var slots: Array[Node] = $Slots.get_children()
 
-var currentMaxType: int = 2
+@onready var currentMaxType: int 
+
+
+
 
 func orient(pos: Marker2D):
 	global_position = pos.global_position
@@ -33,6 +36,8 @@ func spawnWeapons():
 	pullArm()
 	bounceTween()
 	var choices = [] 
+	currentMaxType = $"..".unique_weapons
+	
 	for child in slots:
 		choices.append(randi() % currentMaxType)
 		child.spinToChoice(choices.back())
@@ -41,12 +46,22 @@ func spawnWeapons():
 		await child.settled
 	
 	for i in slots.size():
+		pickups[i].get_node("Sprite2D").visible = true
+
 		var marker = slots[i].spawn_marker
 		pickups[i].global_position = marker.global_position
 		pickups[i].global_rotation = marker.global_rotation
 		pickups[i].setType(choices[i])
-		pickups[i].throw()
-	pass
+		await pickups[i].throw()
+		
+		var weapon = slots[i].weapon.instantiate()
+		get_parent().add_child(weapon)
+		weapon.global_position = pickups[i].get_node("Sprite2D").global_position
+		weapon.global_rotation = pickups[i].get_node("Sprite2D").global_rotation
+		
+		pickups[i].get_node("Sprite2D").visible = false
+		
+		pass
 
 func addType():
 	currentMaxType+=1
