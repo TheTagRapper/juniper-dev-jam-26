@@ -59,9 +59,6 @@ shape = SubResource("RectangleShape2D_044e1")
 [node name="Orbit" type="Node2D" parent="." unique_id=744397457]
 script = ExtResource("5_ejah4")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1113524672]
-zoom = Vector2(2, 2)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1597118119]
 
 [node name="game_hud" parent="CanvasLayer" unique_id=738017201 instance=ExtResource("6_ejah4")]

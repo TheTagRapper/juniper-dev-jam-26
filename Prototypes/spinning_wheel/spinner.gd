@@ -18,11 +18,22 @@ var colours =  {
 @onready var pickupSpawn: Marker2D = $Spawn
 
 @export var pickup: Node2D
+@export var icons: Array[Texture2D]   # indexed by Choices: MELEE, RANGED, THROWN, MAGIC
+@onready var sprite: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+
+func spin_to(final: Choices) -> void:
+	var interval = 0.04
+	while interval < 0.25:
+		pickup.modulate = colours[randi() % colours.size()]
+		await get_tree().create_timer(interval).timeout
+		interval *= 1.18
+	pickup.modulate = colours[final]
+	
 func spawnWeapon(pos: Marker2D):
 	orient(pos)
 
@@ -30,7 +41,6 @@ func spawnWeapon(pos: Marker2D):
 	pickup.modulate.a = 0;
 
 	var choice = randi() % Choices.size()
-
 
 	await wheel.spinToChoice(choice).finished
 
