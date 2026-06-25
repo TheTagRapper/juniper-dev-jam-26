@@ -113,13 +113,13 @@ texture = ExtResource("6_a30q5")
 [node name="Slots" type="Node2D" parent="Machine" unique_id=1439157768]
 
 [node name="Slot" type="Sprite2D" parent="Machine/Slots" unique_id=1293778532]
-position = Vector2(-43.999985, -10.9999695)
+position = Vector2(-26.895, -7.01)
 script = ExtResource("7_85cmg")
 
 [node name="Spawn" type="Marker2D" parent="Machine/Slots/Slot" unique_id=1772588457]
 
 [node name="Slot2" type="Sprite2D" parent="Machine/Slots" unique_id=722539991]
-position = Vector2(1.5258789e-05, -8.999966)
+position = Vector2(25.305, -6.47)
 script = ExtResource("7_85cmg")
 
 [node name="Spawn" type="Marker2D" parent="Machine/Slots/Slot2" unique_id=1477091186]
