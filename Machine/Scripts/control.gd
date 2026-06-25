@@ -32,13 +32,17 @@ func _ready() -> void:
 				weapon_pool.append(ak47)
 			_:
 				assert("Blank spot in weapon_pool in Spinner")
+	spawn_weapons()
 	
 				
-
+func spawn_weapons():
+	if not spawning:
+		_spawnWeapon()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Spin") and not spawning:
-		_spawnWeapon()
+	#if event.is_action_pressed("Spin") and not spawning:
+	#	_spawnWeapon()
+	pass
 
 func _spawnWeapon():
 	spawning = true

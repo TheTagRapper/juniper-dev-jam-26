@@ -29,6 +29,7 @@ PLAYER_WEAPON=""
 MELEE=""
 PlayerEmitter=""
 RANGED=""
+MACHINE=""
 
 [input]
 

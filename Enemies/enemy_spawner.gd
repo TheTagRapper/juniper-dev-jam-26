@@ -74,6 +74,8 @@ func _process(delta: float) -> void:
 		spawn_enemy()
 	else:
 		subwave_cooldown_remaining -= delta
+		
+
 
 
 func _on_button_button_down() -> void:
