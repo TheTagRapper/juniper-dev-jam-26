@@ -2,7 +2,7 @@ extends Node2D
 
 @export var edges: Array[Node2D]
 
-@onready var spinner: Node2D = $Spinner
+@onready var spinner: Node2D = $Machine
 
 var spawning = false
 
@@ -17,7 +17,8 @@ func _unhandled_input(event):
 
 func _spawnWeapon():
 	spawning = true
-	await spinner.spawnWeapon(edges[randi() % edges.size()])	
+	spinner.orient(edges[randi() % edges.size()])
+	await spinner.spawnWeapons()	
 	spawning = false
 	pass
 	

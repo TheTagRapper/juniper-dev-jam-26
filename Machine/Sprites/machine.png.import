@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckkin2ehslux1"
-path="res://.godot/imported/white.png-44a3c90934acbaba8e3f78c66cd72fd2.ctex"
+uid="uid://c6irpxewljp7l"
+path="res://.godot/imported/machine.png-9601f9c2df29e5743f5d5f00cdf9acf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Prototypes/spinning_wheel/white.png"
-dest_files=["res://.godot/imported/white.png-44a3c90934acbaba8e3f78c66cd72fd2.ctex"]
+source_file="res://Machine/Sprites/machine.png"
+dest_files=["res://.godot/imported/machine.png-9601f9c2df29e5743f5d5f00cdf9acf7.ctex"]
 
 [params]
 

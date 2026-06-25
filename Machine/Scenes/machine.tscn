@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://blkqg6rid0oyu"]
+
+[ext_resource type="Script" uid="uid://dqi2oc2x0tjf5" path="res://Machine/Scripts/control.gd" id="1_k4xoj"]
+[ext_resource type="Script" uid="uid://c6tyh2b6r0byr" path="res://Machine/Scripts/machine.gd" id="2_in6m0"]
+[ext_resource type="Texture2D" uid="uid://cs03ivudvsw3c" path="res://Machine/Sprites/sword.png" id="3_v20ub"]
+[ext_resource type="Texture2D" uid="uid://cq7wlyceim0pr" path="res://Machine/Sprites/gun.png" id="4_mp281"]
+[ext_resource type="Texture2D" uid="uid://c6irpxewljp7l" path="res://Machine/Sprites/machine.png" id="5_3a8ht"]
+[ext_resource type="Texture2D" uid="uid://l3oubq5ctr78" path="res://Machine/Sprites/slot_machine_arm.png" id="6_a30q5"]
+[ext_resource type="Script" uid="uid://ceq62pboaaswf" path="res://Machine/Scripts/slot.gd" id="7_85cmg"]
+[ext_resource type="Script" uid="uid://dnlvjufchfcpm" path="res://Machine/Scripts/texture_manager.gd" id="8_655f2"]
+[ext_resource type="Script" uid="uid://3o47cldjox6" path="res://Machine/Scripts/pickup.gd" id="9_ib1jd"]
+
+[sub_resource type="Animation" id="Animation_8uk3u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.16, 0.16)]
+}
+
+[sub_resource type="Animation" id="Animation_5lnqe"]
+resource_name = "spawn"
+length = 0.46666667
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"half",
+"time": 0.48
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1k06d"]
+_data = {
+&"RESET": SubResource("Animation_8uk3u"),
+&"spawn": SubResource("Animation_5lnqe")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1409910503 node_paths=PackedStringArray("edges")]
+script = ExtResource("1_k4xoj")
+edges = [NodePath("Left"), NodePath("Right"), NodePath("Top"), NodePath("Bottom")]
+
+[node name="Left" type="Marker2D" parent="." unique_id=227298862]
+position = Vector2(102, 285)
+
+[node name="Right" type="Marker2D" parent="." unique_id=1414052258]
+position = Vector2(1036, 331)
+rotation = 3.1415927
+
+[node name="Top" type="Marker2D" parent="." unique_id=329187920]
+position = Vector2(542, 98)
+rotation = 1.5707964
+
+[node name="Bottom" type="Marker2D" parent="." unique_id=635284251]
+position = Vector2(549, 549)
+rotation = -1.5707964
+
+[node name="Machine" type="Sprite2D" parent="." unique_id=2039048238 node_paths=PackedStringArray("pickups")]
+position = Vector2(451.99997, 134.99997)
+script = ExtResource("2_in6m0")
+pickups = [NodePath("../Pickups/First"), NodePath("../Pickups/Second")]
+icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
+
+[node name="Body" type="Node2D" parent="Machine" unique_id=103873373]
+scale = Vector2(2.26, 2.26)
+
+[node name="Main" type="Sprite2D" parent="Machine/Body" unique_id=960121741]
+texture = ExtResource("5_3a8ht")
+
+[node name="Arm" type="Sprite2D" parent="Machine/Body" unique_id=100963088]
+texture = ExtResource("6_a30q5")
+
+[node name="Slots" type="Node2D" parent="Machine" unique_id=1439157768]
+
+[node name="Slot" type="Sprite2D" parent="Machine/Slots" unique_id=1293778532]
+position = Vector2(-43.999985, -10.9999695)
+script = ExtResource("7_85cmg")
+
+[node name="Spawn" type="Marker2D" parent="Machine/Slots/Slot" unique_id=1772588457]
+
+[node name="Slot2" type="Sprite2D" parent="Machine/Slots" unique_id=722539991]
+position = Vector2(1.5258789e-05, -8.999966)
+script = ExtResource("7_85cmg")
+
+[node name="Spawn" type="Marker2D" parent="Machine/Slots/Slot2" unique_id=1477091186]
+
+[node name="Pickups" type="Node2D" parent="." unique_id=971717727]
+script = ExtResource("8_655f2")
+textures = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
+
+[node name="First" type="Node2D" parent="Pickups" unique_id=1271887829]
+script = ExtResource("9_ib1jd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickups/First" unique_id=1011567032]
+scale = Vector2(0.16, 0.16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pickups/First/Sprite2D" unique_id=1260412590]
+libraries/ = SubResource("AnimationLibrary_1k06d")
+
+[node name="Second" type="Node2D" parent="Pickups" unique_id=680645911]
+script = ExtResource("9_ib1jd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickups/Second" unique_id=953897104]
+scale = Vector2(0.16, 0.16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pickups/Second/Sprite2D" unique_id=2097263937]
+libraries/ = SubResource("AnimationLibrary_1k06d")
