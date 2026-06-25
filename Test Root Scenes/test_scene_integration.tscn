@@ -34,6 +34,7 @@ position = Vector2(155, -90)
 position = Vector2(333, -105)
 
 [node name="RangedWeapon" parent="." unique_id=417748901 instance=ExtResource("4_43u5p")]
+position = Vector2(-110, -79)
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("4_xulgj")]
 subwaves_remaining = 1
@@ -42,3 +43,4 @@ subwaves_remaining = 1
 position = Vector2(333, -105)
 
 [node name="RangedWeapon2" parent="." unique_id=1439147064 instance=ExtResource("4_43u5p")]
+position = Vector2(51, -78)

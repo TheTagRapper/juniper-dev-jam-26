@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://clisn4vkaapl0"]
+
+[ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_x1bux"]
+[ext_resource type="PackedScene" uid="uid://bkl0ni4fryayd" path="res://Weapons/Melee/Scenes/MeleeWeapon.tscn" id="2_8lj7f"]
+[ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="3_eumki"]
+[ext_resource type="Texture2D" uid="uid://b1gpy1ly5w7ts" path="res://images/temp_background.png" id="4_8lj7f"]
+
+[node name="UiTest" type="Node2D" unique_id=236271221]
+
+[node name="Player" parent="." unique_id=160008220 instance=ExtResource("1_x1bux")]
+position = Vector2(113, 96)
+
+[node name="MeleeWeapon" parent="." unique_id=635360489 instance=ExtResource("2_8lj7f")]
+position = Vector2(516, 188)
+
+[node name="RangedWeapon" parent="." unique_id=417748901 instance=ExtResource("3_eumki")]
+position = Vector2(244, 185)
+
+[node name="MeleeWeapon2" parent="." unique_id=368626891 instance=ExtResource("2_8lj7f")]
+position = Vector2(458, 121)
+
+[node name="MeleeWeapon3" parent="." unique_id=1950794563 instance=ExtResource("2_8lj7f")]
+position = Vector2(499, 49)
+
+[node name="MeleeWeapon4" parent="." unique_id=937525354 instance=ExtResource("2_8lj7f")]
+position = Vector2(140, 220)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1408378440]
+show_behind_parent = true
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_8lj7f")

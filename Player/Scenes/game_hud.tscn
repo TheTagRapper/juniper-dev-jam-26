@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://doaahq4tagtyp"]
 
+[ext_resource type="Script" uid="uid://bppuiamc64wfd" path="res://Player/Scripts/weapon_selector.gd" id="1_lhryf"]
+[ext_resource type="Texture2D" uid="uid://c1hiyn4oqvq7p" path="res://Player/Scenes/game_hud_sprites/bulet.png" id="2_tg32f"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k2my"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
@@ -23,6 +26,20 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_044e1"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc2l0"]
+bg_color = Color(1.2297407e-05, 0.67527044, 0.14032969, 1)
+
 [node name="game_hud" type="Control" unique_id=738017201]
 layout_mode = 3
 anchors_preset = 15
@@ -30,6 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="healthbar" type="ProgressBar" parent="." unique_id=1711732300]
 z_index = -1
@@ -43,3 +61,167 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_hbo4o")
 value = 100.0
 rounded = true
 show_percentage = false
+
+[node name="weapon_selector" type="Control" parent="." unique_id=148003690]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 1170.0
+offset_top = 660.0
+offset_right = 1170.0
+offset_bottom = 660.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(207.665, 261.815)
+offset_transform_enabled = true
+script = ExtResource("1_lhryf")
+
+[node name="weapon1" type="VBoxContainer" parent="weapon_selector" unique_id=1692784923]
+visible = false
+layout_mode = 0
+offset_left = 45.5
+offset_right = 77.5
+offset_bottom = 90.0
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon1" unique_id=1300830122]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon1" unique_id=871210750]
+visible = false
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_044e1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gc2l0")
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="weapon_selector/weapon1" unique_id=84521851]
+visible = false
+custom_maximum_size = Vector2(-1, 15.415)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon1/HBoxContainer" unique_id=2051783679]
+layout_mode = 2
+texture = ExtResource("2_tg32f")
+
+[node name="ammo_label" type="Label" parent="weapon_selector/weapon1/HBoxContainer" unique_id=1702267951]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Label" type="Label" parent="weapon_selector/weapon1" unique_id=2015521393]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weapon2" type="VBoxContainer" parent="weapon_selector" unique_id=212879566]
+visible = false
+layout_mode = 0
+offset_top = 45.0
+offset_right = 32.0
+offset_bottom = 135.0
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon2" unique_id=345587247]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon2" unique_id=42017073]
+visible = false
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_044e1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gc2l0")
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="weapon_selector/weapon2" unique_id=393699796]
+visible = false
+custom_maximum_size = Vector2(-1, 15.415)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon2/HBoxContainer" unique_id=117386394]
+layout_mode = 2
+texture = ExtResource("2_tg32f")
+
+[node name="ammo_label" type="Label" parent="weapon_selector/weapon2/HBoxContainer" unique_id=131967273]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Label" type="Label" parent="weapon_selector/weapon2" unique_id=1380046528]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weapon3" type="VBoxContainer" parent="weapon_selector" unique_id=1907624908]
+visible = false
+layout_mode = 0
+offset_left = -45.0
+offset_right = -13.0
+offset_bottom = 90.0
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon3" unique_id=858598338]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon3" unique_id=448192987]
+visible = false
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_044e1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gc2l0")
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="weapon_selector/weapon3" unique_id=1293742457]
+visible = false
+custom_maximum_size = Vector2(-1, 15.415)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon3/HBoxContainer" unique_id=2020103175]
+layout_mode = 2
+texture = ExtResource("2_tg32f")
+
+[node name="ammo_label" type="Label" parent="weapon_selector/weapon3/HBoxContainer" unique_id=330700686]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Label" type="Label" parent="weapon_selector/weapon3" unique_id=278529001]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="weapon4" type="VBoxContainer" parent="weapon_selector" unique_id=1297062383]
+visible = false
+layout_mode = 0
+offset_top = -45.0
+offset_right = 32.0
+offset_bottom = 45.0
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon4" unique_id=1770281518]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon4" unique_id=395535414]
+visible = false
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_044e1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gc2l0")
+value = 50.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="weapon_selector/weapon4" unique_id=144212735]
+visible = false
+custom_maximum_size = Vector2(-1, 15.415)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon4/HBoxContainer" unique_id=830907920]
+layout_mode = 2
+texture = ExtResource("2_tg32f")
+
+[node name="ammo_label" type="Label" parent="weapon_selector/weapon4/HBoxContainer" unique_id=421196122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Label" type="Label" parent="weapon_selector/weapon4" unique_id=975787129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -17,6 +17,7 @@ var s_height
 var radius
 
 @onready var emitter = get_tree().get_first_node_in_group("PlayerEmitter")
+@onready var game_hud = $"../CanvasLayer/game_hud"
 
 func _ready():
 	parent = get_parent()
@@ -91,21 +92,29 @@ func add_weapon(area: Area2D):
 		if no_of_weapons == 0:
 			holding_index = weapon_index
 			swap_weapons(holding_index + 1)
+			
+		game_hud.get_node("weapon_selector").add_item(weapon_inv[weapon_index])
 
 func remove_weapon(weapon_index : int):
 	weapon_inv[weapon_index].queue_free()
 	weapon_inv[weapon_index] = null
 	stack_of_free_indexes.push_back(weapon_index)
 	
-	for m in range(0,3):
+	for m in range(0,4):
 		if weapon_inv[m] != null:
 			holding_index = m
+			game_hud.get_node("weapon_selector").update_active_visual(holding_index)
+
+	game_hud.get_node("weapon_selector").remove_item(weapon_index)
+
 
 func swap_weapons(selected_index : int):
 	if weapon_inv[selected_index-1] != null:
 		holding_index = selected_index - 1
 		
 		var held = weapon_inv[holding_index]
+		
+		game_hud.get_node("weapon_selector").update_active_visual(holding_index)
 		
 		if weapon_inv[holding_index].is_in_group("MELEE") :
 			emitter.type = 1
