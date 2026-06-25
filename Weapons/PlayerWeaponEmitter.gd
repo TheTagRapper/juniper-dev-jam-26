@@ -62,6 +62,8 @@ func slice():
 		weapon.dmg = held.dmg 
 		weapon.rotation = rotation
 		
+		$MeleeAudio2D.play()
+		$MeleeAudio2D.pitch_scale = randf_range(0.95, 1.0)
 		print("instantiated melee")
 		
 		
@@ -77,7 +79,8 @@ func shoot():
 		weapon2.type = type
 		weapon2.dmg = held.dmg 
 		weapon2.rotation = rotation
-		
+		$RangedAudio2D.play()
+		$RangedAudio2D.pitch_scale = randf_range(0.95, 1.0)
 		print("instantiated ranged")
 
 

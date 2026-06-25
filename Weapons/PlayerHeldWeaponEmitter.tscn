@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://csmhy5tw574c0"]
 
 [ext_resource type="Script" uid="uid://cywqvv5xl6v8g" path="res://Weapons/PlayerWeaponEmitter.gd" id="1_iq6ly"]
+[ext_resource type="AudioStream" uid="uid://b8c6dwa2xx2f5" path="res://Weapons/Ranged/Audio/Tommy gun.ogg" id="2_xqdae"]
+[ext_resource type="AudioStream" uid="uid://dwl5judv265mg" path="res://Weapons/Melee/Audio/sword_slice.wav" id="3_ysuq8"]
 
 [node name="Emitter" type="Node2D" unique_id=899586957]
 script = ExtResource("1_iq6ly")
@@ -10,5 +12,13 @@ position = Vector2(83, 0)
 
 [node name="cooldown" type="Timer" parent="." unique_id=488557435]
 wait_time = 0.402
+
+[node name="RangedAudio2D" type="AudioStreamPlayer2D" parent="." unique_id=155445116]
+stream = ExtResource("2_xqdae")
+attenuation = 2.8284273
+
+[node name="MeleeAudio2D" type="AudioStreamPlayer2D" parent="." unique_id=726288015]
+stream = ExtResource("3_ysuq8")
+attenuation = 2.639016
 
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
