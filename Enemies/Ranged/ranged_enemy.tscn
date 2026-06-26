@@ -1,15 +1,6 @@
 [gd_scene format=3 uid="uid://c7rwymgbg0vky"]
 
-[ext_resource type="Script" uid="uid://06qi78ihxsl2" path="res://Prototypes/enemies_generic_ranged/ranged/ranged_enemy.gd" id="1_ud71m"]
-
-[sub_resource type="Curve" id="Curve_c6iic"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.61999995, 0.24719107), 0.92531395, 0.92531395, 0, 0, Vector2(1, 1), 2.9962544, 0.0, 0, 0]
-point_count = 3
-metadata/_snap_count = 100
+[ext_resource type="Script" uid="uid://g164mpjjxtys" path="res://Enemies/Ranged/ranged_enemy.gd" id="1_ep3hp"]
 
 [node name="RangedEnemy" type="CharacterBody2D" unique_id=998825045 groups=["enemy"]]
-script = ExtResource("1_ud71m")
-speed2 = 120.0
-chase_range = 390.0
-inaccuracy_curve = SubResource("Curve_c6iic")
-max_inaccuracy_angle = 30.0
+script = ExtResource("1_ep3hp")

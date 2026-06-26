@@ -27,11 +27,12 @@ var actual_speed:float
 var has_shot_once:bool = false #ensures the enemy has shot atleast once before leaving the shoot state
 
 #projectile accuracy properties
-@export var inaccuracy_curve: Curve
+@export var inaccuracy_curve: Curve = preload("res://Enemies/Ranged/basic_inacc_curve.tres")
 @export var max_inaccuracy_angle:float = 15
 @export var max_inaccuracy_distance: float
 
 func _ready():
+	print("curve: " + str(inaccuracy_curve) + "max_inaccuracy_distance: " + str(max_inaccuracy_distance))
 	player = get_tree().get_first_node_in_group("player")
 	actual_speed = randf_range(speed1, speed2)
 	max_inaccuracy_distance = chase_range
@@ -47,12 +48,20 @@ func _physics_process(delta):
 			shoot_player(delta)
 		_:
 			pass
+			
+	if health <= 0:
+		queue_free()
 
 
 
 func chase_player(delta):
 	var direction:Vector2 = (player.global_position - global_position).normalized()
 	velocity = direction * actual_speed
+	
+	if player.global_position.x < global_position.x:
+		$AnimatedSprite2D.play("chase_left")
+	else:
+		$AnimatedSprite2D.play("chase_right")
 	
 	check_if_player_close()
 	move_and_slide()
@@ -66,6 +75,12 @@ func shoot_player(delta):
 		shoot()
 		cooldown_timer = shoot_cooldown
 		has_shot_once = true
+		if player.global_position.x < global_position.x:
+			$AnimatedSprite2D.play("shoot_left")
+		else:
+			$AnimatedSprite2D.play("shoot_right")
+
+
 	if global_position.distance_to(player.global_position)>=chase_range && has_shot_once:
 		has_shot_once = false
 		cooldown_timer = 0.0
@@ -88,8 +103,8 @@ func shoot():
 	dir = dir.rotated(random_angle)
 	
 	var proj = ENEMY_BULLET.instantiate()
-	proj.global_position = global_position
-	proj.direction = dir
+	proj.get_node("EnemyBullet").global_position = global_position
+	proj.get_node("EnemyBullet").direction = dir
 	get_tree().current_scene.add_child(proj)
 
 func take_damage(dmg:float):

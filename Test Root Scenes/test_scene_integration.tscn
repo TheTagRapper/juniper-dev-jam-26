@@ -32,7 +32,7 @@ orbit_speed = 10.0
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("4_xulgj")]
 subwave_sizes = Array[int]([2])
-enemy_list = Array[int]([3, 3, 3])
+enemy_list = Array[int]([1, 1, 1])
 
 [node name="Node2D" parent="." unique_id=1409910503 node_paths=PackedStringArray("edges") instance=ExtResource("6_5yi3d")]
 edges = [NodePath("../Left"), NodePath("../Right"), NodePath("../Top"), NodePath("../Bottom")]

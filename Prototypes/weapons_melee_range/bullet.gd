@@ -20,5 +20,11 @@ func _physics_process(delta: float) -> void:
 func _on_bullet_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(dmg)
-		print("EN HEALTH: " + str(dmg))
+		print("EN HEALTH: " + str(body.health))
+	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.get_parent().is_in_group("enemy"):
+		area.get_parent().take_damage(dmg)
 	queue_free()

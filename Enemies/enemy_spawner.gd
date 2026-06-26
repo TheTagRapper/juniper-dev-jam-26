@@ -72,6 +72,8 @@ func spawn_enemy():
 	
 
 func _process(delta: float) -> void:
+	
+	
 	if subwave_cooldown_remaining <= 0 and subwaves_remaining > 0:
 		spawning = true
 		subwave_cooldown_remaining = subwave_cooldown
