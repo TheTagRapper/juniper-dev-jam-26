@@ -29,14 +29,14 @@ size = Vector2(65, 62.5)
 
 [node name="Vampire" type="Node2D" unique_id=1591587779]
 
-[node name="Enemy" parent="." unique_id=1848215361 instance=ExtResource("1_q3wls")]
+[node name="Enemy" parent="." unique_id=1848215361 groups=["enemy"] instance=ExtResource("1_q3wls")]
 projectile_tscn = ExtResource("2_vv4u6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1816140564]
 sprite_frames = SubResource("SpriteFrames_gdf8b")
 animation = &"fire"
 
-[node name="Area2D" type="Area2D" parent="Enemy" unique_id=334101942]
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=334101942 groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=2145606607]
 position = Vector2(0, 2)
