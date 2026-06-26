@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c3cxa4omj2kuo"]
+
+[ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="1_0g5oj"]
+
+[node name="ak" unique_id=417748901 instance=ExtResource("1_0g5oj")]
+ammo = 30
+speed = 2000

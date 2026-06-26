@@ -1,8 +1,8 @@
 extends Node2D
 
-var dmg = 10
-var ammo = 10
-var speed = 1000
+@export var dmg = 10
+@export var ammo = 10
+@export var speed = 1000
 var type = 2
 
 
