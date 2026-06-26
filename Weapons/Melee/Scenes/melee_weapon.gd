@@ -1,7 +1,7 @@
 extends Node2D
 
-var dmg = 10
-var durability = 10
+@export var dmg = 10
+@export var durability = 10
 var type = 1
 
 

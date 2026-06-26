@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://djd2hlvseti4b" path="res://Weapons/Ranged/sprites/minigun.png" id="2_axm6y"]
 
 [node name="lmg" unique_id=417748901 instance=ExtResource("1_msb8x")]
+dmg = 15
+ammo = 50
+speed = 3000
 
 [node name="Sprite2D" parent="." index="0" unique_id=1368349786]
 position = Vector2(5, -1)

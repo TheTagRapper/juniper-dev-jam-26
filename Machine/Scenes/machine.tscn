@@ -3,10 +3,14 @@
 [ext_resource type="Script" uid="uid://dqi2oc2x0tjf5" path="res://Machine/Scripts/control.gd" id="1_k4xoj"]
 [ext_resource type="Script" uid="uid://c6tyh2b6r0byr" path="res://Machine/Scripts/machine.gd" id="2_in6m0"]
 [ext_resource type="Texture2D" uid="uid://cs03ivudvsw3c" path="res://Machine/Sprites/sword.png" id="3_v20ub"]
+[ext_resource type="Texture2D" uid="uid://dquuaqaj0g8bm" path="res://Weapons/Melee/melee_types/sprites/axe.png" id="4_3a8ht"]
 [ext_resource type="Texture2D" uid="uid://cq7wlyceim0pr" path="res://Machine/Sprites/gun.png" id="4_mp281"]
 [ext_resource type="Texture2D" uid="uid://c6irpxewljp7l" path="res://Machine/Sprites/machine.png" id="5_3a8ht"]
+[ext_resource type="Texture2D" uid="uid://tt6q4bpskxx4" path="res://Weapons/Ranged/sprites/revolver.png" id="5_a30q5"]
+[ext_resource type="Texture2D" uid="uid://o5nuyei2w50o" path="res://Weapons/Melee/melee_types/sprites/broadsword.png" id="6_85cmg"]
 [ext_resource type="Texture2D" uid="uid://l3oubq5ctr78" path="res://Machine/Sprites/slot_machine_arm.png" id="6_a30q5"]
 [ext_resource type="Script" uid="uid://ceq62pboaaswf" path="res://Machine/Scripts/slot.gd" id="7_85cmg"]
+[ext_resource type="Texture2D" uid="uid://djd2hlvseti4b" path="res://Weapons/Ranged/sprites/minigun.png" id="7_655f2"]
 [ext_resource type="Script" uid="uid://dnlvjufchfcpm" path="res://Machine/Scripts/texture_manager.gd" id="8_655f2"]
 [ext_resource type="Script" uid="uid://3o47cldjox6" path="res://Machine/Scripts/pickup.gd" id="9_ib1jd"]
 
@@ -79,8 +83,8 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=1409910503 node_paths=PackedStringArray("edges") groups=["MACHINE"]]
 script = ExtResource("1_k4xoj")
 edges = [NodePath("Left_internal"), NodePath("Right_internal"), NodePath("Top_internal"), NodePath("Bottom_internal")]
-icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
-weapon_pool_ENUMS = Array[int]([0, 1])
+icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281"), ExtResource("4_3a8ht"), ExtResource("5_a30q5"), ExtResource("6_85cmg"), ExtResource("7_655f2")])
+weapon_pool_ENUMS = Array[int]([0, 1, 2, 3, 4, 5])
 
 [node name="Left_internal" type="Marker2D" parent="." unique_id=227298862]
 position = Vector2(102, 285)
@@ -127,7 +131,7 @@ script = ExtResource("7_85cmg")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=971717727]
 script = ExtResource("8_655f2")
-textures = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
+textures = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281"), ExtResource("4_3a8ht"), ExtResource("5_a30q5"), ExtResource("6_85cmg"), ExtResource("7_655f2")])
 
 [node name="First" type="Node2D" parent="Pickups" unique_id=1271887829]
 script = ExtResource("9_ib1jd")

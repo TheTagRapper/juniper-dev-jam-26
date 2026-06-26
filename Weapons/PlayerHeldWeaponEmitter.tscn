@@ -11,7 +11,7 @@ script = ExtResource("1_iq6ly")
 position = Vector2(83, 0)
 
 [node name="cooldown" type="Timer" parent="." unique_id=488557435]
-wait_time = 0.402
+wait_time = 0.4
 
 [node name="RangedAudio2D" type="AudioStreamPlayer2D" parent="." unique_id=155445116]
 stream = ExtResource("2_xqdae")

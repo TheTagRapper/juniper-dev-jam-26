@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dquuaqaj0g8bm" path="res://Weapons/Melee/melee_types/sprites/axe.png" id="2_dqakp"]
 
 [node name="axe" unique_id=635360489 instance=ExtResource("1_1cgdq")]
+dmg = 15
+durability = 20
 
 [node name="Sprite2D" parent="." index="0" unique_id=1046098205]
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_dqakp")
 
-[node name="Area2D" parent="." index="1" unique_id=1933624995]
+[node name="Area2D" parent="." index="2" unique_id=1933624995]
 scale = Vector2(0.7600019, 0.68000084)
 
 [node name="CollisionShape2D" parent="Area2D" index="0" unique_id=1938327747]
