@@ -93,6 +93,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("ENEMY_WEAPON"):
 		take_damage(area.get_parent().dmg)
 		area.get_parent().queue_free()
+	elif area.is_in_group("enemy"):
+		
 		
 
 func take_damage(dmg):

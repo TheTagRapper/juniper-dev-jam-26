@@ -36,8 +36,8 @@ projectile_tscn = ExtResource("2_vv4u6")
 sprite_frames = SubResource("SpriteFrames_gdf8b")
 animation = &"fire"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=334101942]
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=334101942]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2145606607]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=2145606607]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_uej70")

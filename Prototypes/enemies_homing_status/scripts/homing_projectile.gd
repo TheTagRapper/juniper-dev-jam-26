@@ -9,7 +9,7 @@ var target : Node2D
 var homing : bool
 
 func _ready():
-	target = get_parent().target
+	target = get_tree().get_first_node_in_group("player")
 	direction = global_position.direction_to(target.position)
 	homing = true
 	look_at(target.global_position)
