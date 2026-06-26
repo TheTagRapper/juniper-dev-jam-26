@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://di8hnnywn433t"]
+
+[ext_resource type="PackedScene" uid="uid://bde55oc7l18f2" path="res://Enemies/Ranged/enemy_bullet.tscn" id="1_6qfks"]
+[ext_resource type="Script" uid="uid://ctwo5hv60pilt" path="res://Enemies/Ranged/enemy_bullet.gd" id="2_tg77p"]
+
+[node name="ShotgunScientistBullet" type="Node2D" unique_id=1360268927]
+
+[node name="EnemyBullet" parent="." unique_id=1567757233 instance=ExtResource("1_6qfks")]
+script = ExtResource("2_tg77p")
+bullet_damage = 12.0

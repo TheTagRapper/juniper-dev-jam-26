@@ -15,7 +15,7 @@ var current_state: enemy_state
 @export var speed2:float = 200
 var actual_speed:float
 
-const ENEMY_BULLET = preload("res://Enemies/Ranged/Human/Scenes/enemy_bullet.tscn")
+@export var ENEMY_BULLET : PackedScene = preload("res://Enemies/Ranged/enemy_bullet.tscn")
 
 @export var health = 100
 
