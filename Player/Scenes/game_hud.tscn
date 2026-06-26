@@ -82,8 +82,10 @@ offset_right = 77.5
 offset_bottom = 90.0
 
 [node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon1" unique_id=1300830122]
+custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon1" unique_id=871210750]
@@ -125,10 +127,10 @@ offset_bottom = 135.0
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon2" unique_id=42017073]
-visible = false
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_044e1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_gc2l0")
@@ -136,7 +138,6 @@ value = 50.0
 show_percentage = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="weapon_selector/weapon2" unique_id=393699796]
-visible = false
 custom_maximum_size = Vector2(-1, 15.415)
 layout_mode = 2
 
@@ -166,6 +167,7 @@ offset_bottom = 90.0
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon3" unique_id=448192987]
@@ -207,6 +209,7 @@ offset_bottom = 45.0
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon4" unique_id=395535414]
