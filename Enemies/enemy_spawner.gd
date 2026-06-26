@@ -14,6 +14,8 @@ enum ENEMY_TYPE {BASIC_HUMAN, RANGED_HUMAN, HOMING_HUMAN, BASIC_SUPERNATURAL, HO
 @export var subwave_sizes : Array[int]
 @export var enemy_list : Array[ENEMY_TYPE] = [ENEMY_TYPE.BASIC_HUMAN, ENEMY_TYPE.RANGED_HUMAN, ENEMY_TYPE.HOMING_HUMAN]
 
+signal all_subwaves_released
+
 # possible enemy spawns
 var enemy_pool 
 var enemies_spawned_in_wave = 0
@@ -72,6 +74,8 @@ func spawn_enemy():
 		enemies_spawned_in_wave = 0
 		subwave_index += 1
 	
+		if subwave_index >= subwave_sizes.size():
+			all_subwaves_released.emit()
 
 func _process(delta: float) -> void:
 	
