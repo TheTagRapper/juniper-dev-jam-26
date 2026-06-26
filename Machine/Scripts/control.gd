@@ -1,19 +1,48 @@
 extends Node2D
 
 @export var edges: Array[Node2D]
+@export var icons: Array[Texture2D]
 
 @onready var spinner: Node2D = $Machine
 
+var knife : PackedScene = preload("res://Weapons/Melee/Scenes/MeleeWeapon.tscn")
+var ak47 : PackedScene = preload("res://Weapons/Ranged/Scenes/RangedWeapon.tscn")
+
+enum WEAPONS {KNIFE, AK47}
+
+@export var weapon_pool_ENUMS : Array[WEAPONS]
+var weapon_pool : Array[PackedScene]
 var spawning = false
+var unique_weapons : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	for weapon in weapon_pool_ENUMS:
+		match weapon:
+			WEAPONS.KNIFE:
+				if knife not in weapon_pool:
+					unique_weapons += 1
+					
+				weapon_pool.append(knife)
+				
+			
+			WEAPONS.AK47:
+				if ak47 not in weapon_pool:
+					unique_weapons += 1
+				weapon_pool.append(ak47)
+			_:
+				assert("Blank spot in weapon_pool in Spinner")
+	spawn_weapons()
+	
+				
+func spawn_weapons():
+	if not spawning:
+		_spawnWeapon()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Spin") and not spawning:
-		_spawnWeapon()
+	#if event.is_action_pressed("Spin") and not spawning:
+	#	_spawnWeapon()
+	pass
 
 func _spawnWeapon():
 	spawning = true

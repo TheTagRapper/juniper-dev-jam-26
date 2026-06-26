@@ -7,4 +7,3 @@ script = ExtResource("1_hhxbs")
 spawn_area_width = 1152.0
 spawn_area_height = 648.0
 min_dist_from_player = 100.0
-wave_size = 3

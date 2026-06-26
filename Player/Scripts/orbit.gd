@@ -9,6 +9,8 @@ var orbit_time
 var weapon_inv = [null, null, null, null]
 var holding_index = 0
 var stack_of_free_indexes = [3, 2, 1, 0] # CHANGE AS WEAPONS CAN NO LONGER BREAK
+var no_of_weapons = 0
+
 
 var animated_sprite 
 var idle_sprite 
@@ -81,8 +83,7 @@ func update_weapon_position(delta: float) -> void:
 
 func add_weapon(area: Area2D):
 	
-	var no_of_weapons = 4 - len(stack_of_free_indexes)
-	
+	$"..".has_spun = false
 	# Checking if full
 	if no_of_weapons >= 0 and no_of_weapons < 4:		
 		var weapon_index = stack_of_free_indexes.pop_back()
@@ -93,6 +94,7 @@ func add_weapon(area: Area2D):
 			holding_index = weapon_index
 			swap_weapons(holding_index + 1)
 			
+		no_of_weapons += 1
 		game_hud.get_node("weapon_selector").add_item(weapon_inv[weapon_index])
 
 func remove_weapon(weapon_index : int):
@@ -104,7 +106,8 @@ func remove_weapon(weapon_index : int):
 		if weapon_inv[m] != null:
 			holding_index = m
 			game_hud.get_node("weapon_selector").update_active_visual(holding_index)
-
+	
+	no_of_weapons -= 1
 	game_hud.get_node("weapon_selector").remove_item(weapon_index)
 
 

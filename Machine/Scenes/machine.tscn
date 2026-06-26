@@ -76,22 +76,24 @@ _data = {
 &"spawn": SubResource("Animation_5lnqe")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1409910503 node_paths=PackedStringArray("edges")]
+[node name="Node2D" type="Node2D" unique_id=1409910503 node_paths=PackedStringArray("edges") groups=["MACHINE"]]
 script = ExtResource("1_k4xoj")
-edges = [NodePath("Left"), NodePath("Right"), NodePath("Top"), NodePath("Bottom")]
+edges = [NodePath("Left_internal"), NodePath("Right_internal"), NodePath("Top_internal"), NodePath("Bottom_internal")]
+icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
+weapon_pool_ENUMS = Array[int]([0, 1])
 
-[node name="Left" type="Marker2D" parent="." unique_id=227298862]
+[node name="Left_internal" type="Marker2D" parent="." unique_id=227298862]
 position = Vector2(102, 285)
 
-[node name="Right" type="Marker2D" parent="." unique_id=1414052258]
+[node name="Right_internal" type="Marker2D" parent="." unique_id=1414052258]
 position = Vector2(1036, 331)
 rotation = 3.1415927
 
-[node name="Top" type="Marker2D" parent="." unique_id=329187920]
+[node name="Top_internal" type="Marker2D" parent="." unique_id=329187920]
 position = Vector2(542, 98)
 rotation = 1.5707964
 
-[node name="Bottom" type="Marker2D" parent="." unique_id=635284251]
+[node name="Bottom_internal" type="Marker2D" parent="." unique_id=635284251]
 position = Vector2(549, 549)
 rotation = -1.5707964
 
@@ -99,7 +101,6 @@ rotation = -1.5707964
 position = Vector2(451.99997, 134.99997)
 script = ExtResource("2_in6m0")
 pickups = [NodePath("../Pickups/First"), NodePath("../Pickups/Second")]
-icons = Array[Texture2D]([ExtResource("3_v20ub"), ExtResource("4_mp281")])
 
 [node name="Body" type="Node2D" parent="Machine" unique_id=103873373]
 scale = Vector2(2.26, 2.26)
@@ -113,13 +114,13 @@ texture = ExtResource("6_a30q5")
 [node name="Slots" type="Node2D" parent="Machine" unique_id=1439157768]
 
 [node name="Slot" type="Sprite2D" parent="Machine/Slots" unique_id=1293778532]
-position = Vector2(-43.999985, -10.9999695)
+position = Vector2(-26.895, -7.01)
 script = ExtResource("7_85cmg")
 
 [node name="Spawn" type="Marker2D" parent="Machine/Slots/Slot" unique_id=1772588457]
 
 [node name="Slot2" type="Sprite2D" parent="Machine/Slots" unique_id=722539991]
-position = Vector2(1.5258789e-05, -8.999966)
+position = Vector2(25.305, -6.47)
 script = ExtResource("7_85cmg")
 
 [node name="Spawn" type="Marker2D" parent="Machine/Slots/Slot2" unique_id=1477091186]
