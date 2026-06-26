@@ -9,8 +9,9 @@ var homing : bool
 
 func _ready():
 	target = get_parent().target
-	direction = (target.position - position).normalized()
+	direction = global_position.direction_to(target.position)
 	homing = true
+	look_at(target.global_position)
 
 func rotate_to_target():
 	var to_target = target.position - position
@@ -31,6 +32,7 @@ func check_bounds(): # change for room
 		queue_free()
 
 func _physics_process(_delta: float) -> void:
+	print(homing)
 	if homing:
 		rotate_to_target()
 	move()
