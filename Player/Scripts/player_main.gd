@@ -19,8 +19,8 @@ var max_health = 50
 var health = max_health
 @onready var machine = get_tree().get_first_node_in_group("MACHINE")
 
-var animation_state = "idle"
-
+var movement_state = "idle"
+var direction = "down"
 func _ready():
 	game_hud.get_node("healthbar").value = health
 	game_hud.get_node("healthbar").max_value = max_health
@@ -32,22 +32,27 @@ func _physics_process(delta: float) -> void:
 	game_hud.get_node("healthbar").value = health
 
 	# Selecting Movement
-	animation_state = "idle"
+	movement_state = "idle"
 	if Input.is_action_pressed("move_right"):
 		position.x += SPEED * delta
-		animation_state = "walking"
+		movement_state = "walking"
+		direction = "right"
 	if Input.is_action_pressed("move_left"):
 		position.x -= SPEED * delta
-		animation_state = "walking"
+		movement_state = "walking"
+		direction = "left"
 
 	if Input.is_action_pressed("move_down"):
 		position.y += SPEED * delta
-		animation_state = "walking"
+		movement_state = "walking"
+		direction = "down"
 
 	if Input.is_action_pressed("move_up"):
 		position.y -= SPEED * delta
-		animation_state = "walking"
+		movement_state = "walking"
+		direction = "up"
 	
+	var animation_state = movement_state + "_" + direction
 	if animation_state != $AnimatedSprite2D.animation:
 		$AnimatedSprite2D.play(animation_state)
 	
@@ -88,6 +93,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("ENEMY_WEAPON"):
 		take_damage(area.get_parent().dmg)
 		area.get_parent().queue_free()
+
+		
 		
 
 func take_damage(dmg):

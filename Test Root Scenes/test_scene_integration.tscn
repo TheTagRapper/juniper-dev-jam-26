@@ -3,7 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="1_ghf32"]
 [ext_resource type="Texture2D" uid="uid://b1gpy1ly5w7ts" path="res://images/temp_background.png" id="1_xulgj"]
 [ext_resource type="PackedScene" uid="uid://bnebbodc2u6y4" path="res://Enemies/EnemySpawner.tscn" id="4_xulgj"]
+[ext_resource type="Texture2D" uid="uid://djd2hlvseti4b" path="res://Weapons/Ranged/sprites/minigun.png" id="5_qd1v3"]
 [ext_resource type="PackedScene" uid="uid://blkqg6rid0oyu" path="res://Machine/Scenes/machine.tscn" id="6_5yi3d"]
+[ext_resource type="Texture2D" uid="uid://dquuaqaj0g8bm" path="res://Weapons/Melee/melee_types/sprites/axe.png" id="6_qkp6u"]
+[ext_resource type="Texture2D" uid="uid://tt6q4bpskxx4" path="res://Weapons/Ranged/sprites/revolver.png" id="7_0httt"]
+[ext_resource type="Texture2D" uid="uid://o5nuyei2w50o" path="res://Weapons/Melee/melee_types/sprites/broadsword.png" id="8_gslys"]
 
 [node name="TestSceneIntegration" type="Node2D" unique_id=1637330267]
 
@@ -27,10 +31,13 @@ polygon = PackedVector2Array(-664, -254, 1336, -215, 1360, 713, -636.00006, 706,
 orbit_speed = 10.0
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("4_xulgj")]
-subwaves_remaining = 1
+subwave_sizes = Array[int]([3])
+enemy_list = Array[int]([4, 2])
 
 [node name="Node2D" parent="." unique_id=1409910503 node_paths=PackedStringArray("edges") instance=ExtResource("6_5yi3d")]
 edges = [NodePath("../Left"), NodePath("../Right"), NodePath("../Top"), NodePath("../Bottom")]
+icons = Array[Texture2D]([ExtResource("5_qd1v3"), ExtResource("5_qd1v3"), ExtResource("6_qkp6u"), ExtResource("7_0httt"), ExtResource("8_gslys"), ExtResource("5_qd1v3")])
+weapon_pool_ENUMS = Array[int]([5, 5, 2, 3, 4, 5])
 
 [node name="Top" type="Marker2D" parent="." unique_id=1754548673]
 position = Vector2(369, -332)

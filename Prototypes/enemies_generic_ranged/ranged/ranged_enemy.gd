@@ -15,7 +15,7 @@ var current_state: enemy_state
 @export var speed2:float = 200
 var actual_speed:float
 
-const ENEMY_BULLET = preload("uid://bgc5xhjbnsees")
+@export var ENEMY_BULLET = preload("uid://bgc5xhjbnsees")
 
 @export var health = 100
 

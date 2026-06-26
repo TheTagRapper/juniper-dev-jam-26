@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://di8hnnywn433t"]
+
+[ext_resource type="PackedScene" uid="uid://bde55oc7l18f2" path="res://Enemies/Ranged/enemy_bullet.tscn" id="1_6qfks"]
+[ext_resource type="Script" uid="uid://ctwo5hv60pilt" path="res://Enemies/Ranged/enemy_bullet.gd" id="2_tg77p"]
+[ext_resource type="Texture2D" uid="uid://dnbjxp1tyruni" path="res://Enemies/Ranged/Human/Sprites/small_bullet.png" id="3_jhlo7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
+size = Vector2(8, 8)
+
+[node name="ShotgunScientistBullet" type="Node2D" unique_id=1360268927]
+
+[node name="EnemyBullet" parent="." unique_id=1567757233 instance=ExtResource("1_6qfks")]
+script = ExtResource("2_tg77p")
+bullet_damage = 12.0
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyBullet" unique_id=209212352]
+texture = ExtResource("3_jhlo7")
+
+[node name="Area2D" type="Area2D" parent="EnemyBullet" unique_id=1866980618]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBullet/Area2D" unique_id=1918533300]
+shape = SubResource("RectangleShape2D_b00go")
+
+[connection signal="body_entered" from="EnemyBullet/Area2D" to="EnemyBullet" method="_on_area_2d_body_entered"]

@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://e0lscddi4wmp"]
 
 [ext_resource type="Script" uid="uid://06qi78ihxsl2" path="res://Prototypes/enemies_generic_ranged/ranged/ranged_enemy.gd" id="1_c6iic"]
-
-[sub_resource type="Curve" id="Curve_c6iic"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.61499995, 0.26966298), 0.92531395, 0.92531395, 0, 0, Vector2(0.99, 1), 2.9962544, 0.0, 0, 0]
-point_count = 3
-metadata/_snap_count = 100
+[ext_resource type="Curve" uid="uid://3lawgo2tblr1" path="res://Enemies/Ranged/basic_inacc_curve.tres" id="2_v5fm4"]
 
 [sub_resource type="Gradient" id="Gradient_l0t1y"]
 colors = PackedColorArray(0.7372549, 0.5372549, 0, 1, 1, 1, 1, 1)
@@ -25,7 +21,7 @@ collision_mask = 2
 script = ExtResource("1_c6iic")
 speed2 = 120.0
 chase_range = 390.0
-inaccuracy_curve = SubResource("Curve_c6iic")
+inaccuracy_curve = ExtResource("2_v5fm4")
 max_inaccuracy_angle = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=159105826]

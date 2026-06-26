@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tox7sr6p4ltf"]
+
+[ext_resource type="Script" uid="uid://bm73y76t356g" path="res://Enemies/Homing/fire_homing.gd" id="1_iefqk"]
+
+[node name="Enemy" type="Node2D" unique_id=1848215361]
+script = ExtResource("1_iefqk")

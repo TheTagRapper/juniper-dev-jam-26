@@ -2,13 +2,14 @@ extends Node2D
 
 @export var turn_limit : float
 @export var speed : float
+@export var dmg: float
 
 var direction : Vector2
 var target : Node2D
 var homing : bool
 
 func _ready():
-	target = get_parent().target
+	target = get_tree().get_first_node_in_group("player")
 	direction = global_position.direction_to(target.position)
 	homing = true
 	look_at(target.global_position)
@@ -37,3 +38,11 @@ func _physics_process(_delta: float) -> void:
 		rotate_to_target()
 	move()
 	check_bounds()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(dmg)
+	var parent = get_parent()
+	if parent != null:
+		get_parent().queue_free()

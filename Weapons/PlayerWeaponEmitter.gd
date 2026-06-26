@@ -35,14 +35,22 @@ func _process(delta: float) -> void:
 	if held != null:
 		if Input.is_action_just_pressed("shoot") and isready == true:			
 			if held.type == 1 and held.durability > 0:
-				isready == false
+				isready = false
 				slice()
 				$cooldown.start()
 				
 			elif held.type == 2 and held.ammo > 0:
-				isready == false
+				isready = false
 				shoot()
 				$cooldown.start()
+		
+		if Input.is_action_pressed("shoot") and isready:
+			if held.type == 2:
+				if held.weapon_name == held.WEAPONS.LMG and held.ammo > 0:
+					isready = false
+					shoot()
+					$cooldown.wait_time = 60.0 / 500.0
+					$cooldown.start()
 
 func get_held():
 	var orbit_system = get_parent().get_node("Orbit")

@@ -3,11 +3,21 @@
 [ext_resource type="Script" uid="uid://byw3sf3hdyp8y" path="res://Player/Scripts/player_main.gd" id="1_7jgbj"]
 [ext_resource type="Texture2D" uid="uid://csjh03d2mqit2" path="res://Prototypes/orbiting_system/Sprites/sprite_idle.png" id="2_822rf"]
 [ext_resource type="Texture2D" uid="uid://xqeicspeflhx" path="res://Prototypes/orbiting_system/Sprites/sprite_forward_L.png" id="3_2xd6j"]
+[ext_resource type="Texture2D" uid="uid://bsbcsp5y0vcbk" path="res://Player/Sprites/sprite_side_L.png" id="3_p5bkw"]
+[ext_resource type="Texture2D" uid="uid://bfghjng7rag6" path="res://Player/Sprites/sprite_side_R.png" id="4_q3u0r"]
 [ext_resource type="Texture2D" uid="uid://boun42wud4ngt" path="res://Prototypes/orbiting_system/Sprites/sprite_forward_R.png" id="4_xkn8t"]
 [ext_resource type="Script" uid="uid://w6bwje0eb0vx" path="res://Player/Scripts/orbit.gd" id="5_ejah4"]
+[ext_resource type="Texture2D" uid="uid://6vpo43uerb5" path="res://Player/Sprites/sprite_back.png" id="5_f5uno"]
 [ext_resource type="PackedScene" uid="uid://doaahq4tagtyp" path="res://Player/Scenes/game_hud.tscn" id="6_ejah4"]
+[ext_resource type="Texture2D" uid="uid://bejfqa6hjsjb0" path="res://Player/Sprites/sprite_idle.png" id="7_agy6j"]
 [ext_resource type="PackedScene" uid="uid://csmhy5tw574c0" path="res://Weapons/PlayerHeldWeaponEmitter.tscn" id="7_wyx6f"]
+[ext_resource type="Texture2D" uid="uid://cbbvaeme20xfa" path="res://Player/Sprites/sprite_side_step_front_L.png" id="8_agy6j"]
 [ext_resource type="PackedScene" uid="uid://cdhlyw815iayg" path="res://Player/Scenes/camera_2d.tscn" id="8_n15od"]
+[ext_resource type="Texture2D" uid="uid://dbamw5ykuuv3v" path="res://Player/Sprites/sprite_side_step_back_R.png" id="9_ac4ik"]
+[ext_resource type="Texture2D" uid="uid://c80xwlqyl322x" path="res://Player/Sprites/sprite_side_step_back_L.png" id="10_f5uno"]
+[ext_resource type="Texture2D" uid="uid://cq7luftq5j0dx" path="res://Player/Sprites/sprite_back_L.png" id="10_qqeun"]
+[ext_resource type="Texture2D" uid="uid://ddefvvmdd3ol6" path="res://Player/Sprites/sprite_side_step_front_R.png" id="11_agy6j"]
+[ext_resource type="Texture2D" uid="uid://1tgaftpcuirg" path="res://Player/Sprites/sprite_back_R.png" id="11_nsxpy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b00go"]
 animations = [{
@@ -16,7 +26,31 @@ animations = [{
 "texture": ExtResource("2_822rf")
 }],
 "loop": 1,
-"name": &"idle",
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p5bkw")
+}],
+"loop": 1,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q3u0r")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f5uno")
+}],
+"loop": 1,
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -24,11 +58,56 @@ animations = [{
 "texture": ExtResource("3_2xd6j")
 }, {
 "duration": 1.0,
+"texture": ExtResource("7_agy6j")
+}, {
+"duration": 1.0,
 "texture": ExtResource("4_xkn8t")
 }],
 "loop": 1,
-"name": &"walking",
+"name": &"walking_down",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_agy6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p5bkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ac4ik")
+}],
+"loop": 1,
+"name": &"walking_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f5uno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q3u0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_agy6j")
+}],
+"loop": 1,
+"name": &"walking_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qqeun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f5uno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_nsxpy")
+}],
+"loop": 1,
+"name": &"walking_up",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
@@ -44,8 +123,7 @@ script = ExtResource("1_7jgbj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2125088442]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_b00go")
-animation = &"walking"
-frame_progress = 0.80559766
+animation = &"walking_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489140582]
 shape = SubResource("RectangleShape2D_b00go")

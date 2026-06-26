@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://mdfxy4a64fu5"]
+
+[ext_resource type="Script" uid="uid://m8mxgc668jt" path="res://Prototypes/enemies_generic_ranged/generic/basic_enemy.gd" id="1_playo"]
+
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=652463472 groups=["ENEMY_WEAPON", "enemy"]]
+collision_layer = 3
+collision_mask = 2
+script = ExtResource("1_playo")

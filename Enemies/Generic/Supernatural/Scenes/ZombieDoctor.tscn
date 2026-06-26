@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://burnnitv802kc"]
+
+[ext_resource type="PackedScene" uid="uid://mdfxy4a64fu5" path="res://Enemies/Generic/basic_enemy.tscn" id="1_b2u5x"]
+[ext_resource type="Texture2D" uid="uid://cxrlsfjik1ah6" path="res://Enemies/Generic/Supernatural/Scenes/zombie_doctor_l.png" id="2_26j1r"]
+[ext_resource type="Texture2D" uid="uid://cq5y8kaen4cp5" path="res://Enemies/Generic/Supernatural/Scenes/zombie_doctor_r.png" id="3_w7xso"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b00go"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_26j1r")
+}],
+"loop": 1,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w7xso")
+}],
+"loop": 1,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
+size = Vector2(24, 56)
+
+[node name="ZombieDoctor" type="Node2D" unique_id=1929597418]
+
+[node name="BasicEnemy" parent="." unique_id=652463472 instance=ExtResource("1_b2u5x")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BasicEnemy" unique_id=1079502066]
+sprite_frames = SubResource("SpriteFrames_b00go")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicEnemy" unique_id=906048571]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_b00go")

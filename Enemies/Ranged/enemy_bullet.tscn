@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bde55oc7l18f2"]
+
+[ext_resource type="Script" uid="uid://ct0ahiccgn7ep" path="res://Prototypes/enemies_generic_ranged/ranged/enemy_bullet.gd" id="1_k23iu"]
+
+[node name="EnemyBullet" type="Node2D" unique_id=1567757233]
+script = ExtResource("1_k23iu")

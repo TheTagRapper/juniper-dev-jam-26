@@ -1,10 +1,11 @@
 extends Node2D
 
-var basic_human = preload("res://Enemies/Generic/Human/Scenes/basic_enemy.tscn")
-var homing_human = preload("res://Enemies/Homing/Human/Scenes/homing_enemy.tscn")
-var ranged_human = preload("res://Enemies/Ranged/Human/Scenes/ranged_enemy.tscn")
-
-enum ENEMY_TYPE {BASIC_HUMAN, RANGED_HUMAN, HOMING_HUMAN}
+var basic_human = preload("res://Enemies/Generic/basic_enemy.tscn")
+var homing_human = preload("res://Enemies/Homing/Human/Scenes/Drone.tscn")
+var ranged_human = preload("res://Enemies/Ranged/Human/Scenes/ShotgunScientist.tscn")
+var basic_supernatural = preload("res://Enemies/Generic/Supernatural/Scenes/ZombieDoctor.tscn")
+var homing_supernatural = preload("res://Enemies/Homing/Supernatural/Scenes/Vampire.tscn")
+enum ENEMY_TYPE {BASIC_HUMAN, RANGED_HUMAN, HOMING_HUMAN, BASIC_SUPERNATURAL, HOMING_SUPERNATURAL}
 
 @export var spawn_area_width : float 
 @export var spawn_area_height : float
@@ -35,6 +36,10 @@ func _ready():
 				enemy_pool.append(ranged_human)
 			ENEMY_TYPE.HOMING_HUMAN:
 				enemy_pool.append(homing_human)
+			ENEMY_TYPE.BASIC_SUPERNATURAL:
+				enemy_pool.append(basic_supernatural)
+			ENEMY_TYPE.HOMING_SUPERNATURAL:
+				enemy_pool.append(homing_supernatural)
 				
 	subwaves_remaining = subwave_sizes.size()
 
@@ -69,6 +74,8 @@ func spawn_enemy():
 	
 
 func _process(delta: float) -> void:
+	
+	
 	if subwave_cooldown_remaining <= 0 and subwaves_remaining > 0:
 		spawning = true
 		subwave_cooldown_remaining = subwave_cooldown

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cuhu2erm0pam4"]
+
+[ext_resource type="PackedScene" uid="uid://c7rwymgbg0vky" path="res://Enemies/Ranged/ranged_enemy.tscn" id="1_o61kn"]
+[ext_resource type="PackedScene" uid="uid://di8hnnywn433t" path="res://Enemies/Ranged/Human/Scenes/ShotgunScientistBullet.tscn" id="2_6wk1w"]
+[ext_resource type="Texture2D" uid="uid://dp56lddqsib25" path="res://Enemies/Ranged/Human/Sprites/hazmat_l.png" id="4_wdqct"]
+[ext_resource type="Texture2D" uid="uid://dg7grcyuy26nu" path="res://Enemies/Ranged/Human/Sprites/hazmat_r.png" id="5_6jvly"]
+[ext_resource type="Texture2D" uid="uid://be80lfodk0t1a" path="res://Enemies/Ranged/Human/Sprites/hazmat_aim_l.png" id="6_qsdmr"]
+[ext_resource type="Texture2D" uid="uid://icdy4qwniqbp" path="res://Enemies/Ranged/Human/Sprites/hazmat_aim_r.png" id="7_0ruc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
+size = Vector2(32, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b00go"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wdqct")
+}],
+"loop": 1,
+"name": &"chase_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6jvly")
+}],
+"loop": 1,
+"name": &"chase_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wdqct")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qsdmr")
+}],
+"loop": 1,
+"name": &"shoot_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0ruc8")
+}],
+"loop": 1,
+"name": &"shoot_right",
+"speed": 5.0
+}]
+
+[node name="ShotgunScientist" type="Node2D" unique_id=1931232432 groups=["enemy"]]
+
+[node name="RangedEnemy" parent="." unique_id=998825045 instance=ExtResource("1_o61kn")]
+ENEMY_BULLET = ExtResource("2_6wk1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangedEnemy" unique_id=1015061425]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_b00go")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RangedEnemy" unique_id=1708804602]
+sprite_frames = SubResource("SpriteFrames_b00go")
+animation = &"shoot_left"
