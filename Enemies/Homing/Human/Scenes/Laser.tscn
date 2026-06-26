@@ -9,6 +9,7 @@ size = Vector2(56.666668, 10)
 [node name="Laser" type="Node2D" unique_id=865926629]
 
 [node name="HomingProjectile" parent="." unique_id=468660561 groups=["ENEMY_WEAPON"] instance=ExtResource("1_w4ihv")]
+dmg = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="HomingProjectile" unique_id=157838758]
 texture = ExtResource("2_whcb6")

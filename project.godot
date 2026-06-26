@@ -30,6 +30,7 @@ MELEE=""
 PlayerEmitter=""
 RANGED=""
 MACHINE=""
+Pickup=""
 
 [input]
 
