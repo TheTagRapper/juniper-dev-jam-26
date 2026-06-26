@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dnftbf5t1qo5i" path="res://Weapons/Melee/Scenes/melee_weapon.gd" id="1_on516"]
 [ext_resource type="Texture2D" uid="uid://cf3mqhlp3y6wj" path="res://Player/Scenes/game_hud_sprites/sword.png" id="2_on516"]
+[ext_resource type="AudioStream" uid="uid://c8bvyne6aimjp" path="res://Weapons/Melee/Audio/squelching_1.wav" id="3_tkmkq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
 size = Vector2(32, 40)
@@ -11,6 +12,9 @@ script = ExtResource("1_on516")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1046098205]
 texture = ExtResource("2_on516")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=845754497]
+stream = ExtResource("3_tkmkq")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1933624995]
 

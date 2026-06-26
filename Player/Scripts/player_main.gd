@@ -8,7 +8,7 @@ const SPEED = 300.0
 @onready var game_hud = $CanvasLayer/game_hud
 
 
-
+var has_spun = true
 
 # Orbiting Variables
 @export var projectile_count = 3
@@ -17,12 +17,14 @@ const SPEED = 300.0
 
 var max_health = 50
 var health = max_health
+@onready var machine = get_tree().get_first_node_in_group("MACHINE")
 
 var animation_state = "idle"
 
 func _ready():
 	game_hud.get_node("healthbar").value = health
 	game_hud.get_node("healthbar").max_value = max_health
+	
 
 func _physics_process(delta: float) -> void:
 
@@ -63,7 +65,15 @@ func _physics_process(delta: float) -> void:
 	
 	if health <= 0:
 		death_motion()
-		
+	
+	# refresh on empty inv
+	if $Orbit.no_of_weapons == 0 and not has_spun:
+
+		if machine != null :
+			await machine.spawn_weapons()
+			has_spun = true
+			
+	
 	move_and_slide()
 
 func death_motion():

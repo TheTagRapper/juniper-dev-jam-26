@@ -10,8 +10,7 @@ enum ENEMY_TYPE {BASIC_HUMAN, RANGED_HUMAN, HOMING_HUMAN}
 @export var spawn_area_height : float
 @export var min_dist_from_player : float
 @export var subwave_cooldown : float = 15
-@export var wave_size : int
-@export var subwaves_remaining : int = 3
+@export var subwave_sizes : Array[int]
 @export var enemy_list : Array[ENEMY_TYPE] = [ENEMY_TYPE.BASIC_HUMAN, ENEMY_TYPE.RANGED_HUMAN, ENEMY_TYPE.HOMING_HUMAN]
 
 # possible enemy spawns
@@ -21,10 +20,12 @@ var spawning = false
 
 var player
 var subwave_cooldown_remaining
+var subwaves_remaining
 
+var subwave_index = 0
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	subwave_cooldown_remaining = 0
+	subwave_cooldown_remaining = subwave_cooldown
 	enemy_pool = []
 	for m in enemy_list:
 		match m:
@@ -34,6 +35,8 @@ func _ready():
 				enemy_pool.append(ranged_human)
 			ENEMY_TYPE.HOMING_HUMAN:
 				enemy_pool.append(homing_human)
+				
+	subwaves_remaining = subwave_sizes.size()
 
 
 func find_spawn_pos() -> Vector2:
@@ -59,9 +62,10 @@ func spawn_enemy():
 	enemy.add_to_group("enemy")
 	enemy.reparent(get_tree().root)
 	enemies_spawned_in_wave += 1
-	if enemies_spawned_in_wave >= wave_size:
+	if enemies_spawned_in_wave >= subwave_sizes[subwave_index]:
 		spawning = false
 		enemies_spawned_in_wave = 0
+		subwave_index += 1
 	
 
 func _process(delta: float) -> void:
@@ -74,6 +78,7 @@ func _process(delta: float) -> void:
 		spawn_enemy()
 	else:
 		subwave_cooldown_remaining -= delta
+		
 
 
 func _on_button_button_down() -> void:
