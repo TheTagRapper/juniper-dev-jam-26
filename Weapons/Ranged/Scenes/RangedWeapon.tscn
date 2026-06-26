@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwvjxqbj4i6oa" path="res://Player/Scenes/game_hud_sprites/gun.png" id="2_b4y20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
-size = Vector2(8, 8)
+size = Vector2(34, 14)
 
 [node name="RangedWeapon" type="Node2D" unique_id=417748901 groups=["PLAYER_WEAPON", "RANGED"]]
 script = ExtResource("1_ihaq4")

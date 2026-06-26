@@ -82,7 +82,9 @@ offset_right = 77.5
 offset_bottom = 90.0
 
 [node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon1" unique_id=1300830122]
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon1" unique_id=871210750]
 visible = false
@@ -120,7 +122,10 @@ offset_right = 32.0
 offset_bottom = 135.0
 
 [node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon2" unique_id=345587247]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon2" unique_id=42017073]
 visible = false
@@ -158,7 +163,10 @@ offset_right = -13.0
 offset_bottom = 90.0
 
 [node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon3" unique_id=858598338]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon3" unique_id=448192987]
 visible = false
@@ -196,7 +204,10 @@ offset_right = 32.0
 offset_bottom = 45.0
 
 [node name="TextureRect" type="TextureRect" parent="weapon_selector/weapon4" unique_id=1770281518]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+stretch_mode = 5
 
 [node name="ProgressBar" type="ProgressBar" parent="weapon_selector/weapon4" unique_id=395535414]
 visible = false

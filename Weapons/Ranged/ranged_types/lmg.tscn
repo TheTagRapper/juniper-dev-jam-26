@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv2x5xx3c5pci"]
+
+[ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="1_msb8x"]
+[ext_resource type="Texture2D" uid="uid://djd2hlvseti4b" path="res://Weapons/Ranged/sprites/minigun.png" id="2_axm6y"]
+
+[node name="lmg" unique_id=417748901 instance=ExtResource("1_msb8x")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1368349786]
+position = Vector2(5, -1)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_axm6y")
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(1225339346) index="0" unique_id=1136038508]
+scale = Vector2(1.5036409, 1.2399989)

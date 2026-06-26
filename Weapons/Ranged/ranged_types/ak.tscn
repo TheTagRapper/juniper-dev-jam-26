@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c3cxa4omj2kuo"]
+
+[ext_resource type="PackedScene" uid="uid://brmeqboljsp7b" path="res://Weapons/Ranged/Scenes/RangedWeapon.tscn" id="1_0g5oj"]
+[ext_resource type="Texture2D" uid="uid://idk0qcryu6lr" path="res://Weapons/Ranged/sprites/gun.png" id="2_60rni"]
+
+[node name="ak" unique_id=417748901 instance=ExtResource("1_0g5oj")]
+
+[node name="hud_image" parent="." index="2" unique_id=884174900]
+visible = false
+texture = ExtResource("2_60rni")
