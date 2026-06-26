@@ -33,7 +33,6 @@ func check_bounds(): # change for room
 		queue_free()
 
 func _physics_process(_delta: float) -> void:
-	print(homing)
 	if homing:
 		rotate_to_target()
 	move()

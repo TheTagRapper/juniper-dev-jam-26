@@ -43,7 +43,7 @@ func update_weapon_position(delta: float) -> void:
 	orbit_time += delta
 	
 	# Updating weapon positions
-	for i in range(4):
+	for i in range(2):
 		if weapon_inv[i] != null:
 			# Checking if durability is finished
 			if weapon_inv[i].type == 1:
@@ -56,7 +56,7 @@ func update_weapon_position(delta: float) -> void:
 					return
 			
 			
-			var player_position = get_parent().position
+			var player_position = get_parent().global_position
 			
 			#if weapon_inv[i].needs_detachment == true:
 			#	remove_weapon(i)
@@ -65,8 +65,8 @@ func update_weapon_position(delta: float) -> void:
 				# Point in a circle around the gun.
 				var target_angle = (get_global_mouse_position() - get_parent().global_position).angle()
 				weapon_inv[i].rotation = lerp_angle(weapon_inv[i].rotation, target_angle, delta * 10)
-				weapon_inv[i].position.x = player_position.x + radius * cos(weapon_inv[i].rotation)
-				weapon_inv[i].position.y = player_position.y + radius * sin(weapon_inv[i].rotation)
+				weapon_inv[i].global_position.x = player_position.x + radius * cos(weapon_inv[i].rotation)
+				weapon_inv[i].global_position.y = player_position.y + radius * sin(weapon_inv[i].rotation)
 			# Letting them orbit around
 			else:
 				# Need to make the orbits uniform
@@ -76,8 +76,8 @@ func update_weapon_position(delta: float) -> void:
 				else:
 					orbit_index = i
 				
-				weapon_inv[i].position.x = player_position.x + cos(2*PI/projectile_count * orbit_index + orbit_time * orbit_speed) * orbit_distance
-				weapon_inv[i].position.y = player_position.y + sin(2*PI/projectile_count * orbit_index + orbit_time * orbit_speed) * orbit_distance
+				weapon_inv[i].global_position.x = player_position.x + cos(2*PI/projectile_count * orbit_index + orbit_time * orbit_speed) * orbit_distance
+				weapon_inv[i].global_position.y = player_position.y + sin(2*PI/projectile_count * orbit_index + orbit_time * orbit_speed) * orbit_distance
 
 
 
