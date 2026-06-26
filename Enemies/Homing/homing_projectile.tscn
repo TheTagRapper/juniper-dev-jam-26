@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dgmmkwqgurrxk"]
+
+[ext_resource type="Script" uid="uid://68wwesea77hj" path="res://Prototypes/enemies_homing_status/scripts/homing_projectile.gd" id="1_tj0h0"]
+
+[node name="HomingProjectile" type="Node2D" unique_id=468660561]
+script = ExtResource("1_tj0h0")
+turn_limit = 0.02
+speed = 3.0

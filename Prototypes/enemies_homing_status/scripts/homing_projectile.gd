@@ -2,6 +2,7 @@ extends Node2D
 
 @export var turn_limit : float
 @export var speed : float
+@export var dmg: float
 
 var direction : Vector2
 var target : Node2D
@@ -37,3 +38,11 @@ func _physics_process(_delta: float) -> void:
 		rotate_to_target()
 	move()
 	check_bounds()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.take_damage(dmg)
+	var parent = get_parent()
+	if parent != null:
+		get_parent().queue_free()
