@@ -31,7 +31,7 @@ func _ready():
 
 	# Required values for positioning weapons
 	animated_sprite = parent.get_node("AnimatedSprite2D")
-	idle_sprite = animated_sprite.sprite_frames.get_frame_texture("idle", 0)
+	idle_sprite = animated_sprite.sprite_frames.get_frame_texture("idle_down", 0)
 	s_width = idle_sprite.get_width()
 	s_height = idle_sprite.get_height()
 	radius = sqrt((s_width/8) ** 2 + (s_height/8) ** 2)
