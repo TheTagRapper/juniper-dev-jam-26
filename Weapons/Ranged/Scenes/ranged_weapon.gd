@@ -6,6 +6,8 @@ extends Node2D
 var type = 2
 
 
+enum WEAPONS { AK47,  PISTOL, LMG}
+@export var weapon_name : WEAPONS
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
