@@ -76,7 +76,7 @@ func shoot():
 	weapon2.dmg = dmg 
 	weapon2.rotation = rotation
 	
-	print("instantiated ranged")
+	#print("instantiated ranged")
 
 
 func _on_cooldown_timeout() -> void:

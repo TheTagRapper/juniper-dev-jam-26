@@ -92,7 +92,10 @@ func _process(delta: float) -> void:
 		print("Enemy: " + str(get_tree().get_nodes_in_group("enemy")))
 	elif enemy_count <= 0:
 		subwave_cooldown_remaining -= delta
-		
+	#DEBUG
+	if Input.is_key_pressed(KEY_L):
+		print("Subwave Cooldown: " + str(subwave_cooldown_remaining))
+		print("Enemies left to spawn in subwave: " + str(enemy_count))
 
 
 func _on_button_button_down() -> void:

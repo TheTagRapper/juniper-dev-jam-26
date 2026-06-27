@@ -31,6 +31,7 @@ PlayerEmitter=""
 RANGED=""
 MACHINE=""
 Pickup=""
+world=""
 
 [input]
 

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://g164mpjjxtys" path="res://Enemies/Ranged/ranged_enemy.gd" id="1_ep3hp"]
 
 [node name="RangedEnemy" type="CharacterBody2D" unique_id=998825045 groups=["enemy"]]
+motion_mode = 1
 script = ExtResource("1_ep3hp")

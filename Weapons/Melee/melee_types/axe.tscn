@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dquuaqaj0g8bm" path="res://Weapons/Melee/melee_types/sprites/axe.png" id="2_dqakp"]
 
 [node name="axe" unique_id=635360489 instance=ExtResource("1_1cgdq")]
-dmg = 15
+dmg = 20
 durability = 20
 
 [node name="Sprite2D" parent="." index="0" unique_id=1046098205]

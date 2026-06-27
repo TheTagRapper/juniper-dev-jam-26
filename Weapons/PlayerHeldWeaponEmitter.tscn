@@ -8,7 +8,7 @@
 script = ExtResource("1_iq6ly")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1590129724]
-position = Vector2(83, 0)
+position = Vector2(20, 0)
 
 [node name="cooldown" type="Timer" parent="." unique_id=488557435]
 wait_time = 0.4

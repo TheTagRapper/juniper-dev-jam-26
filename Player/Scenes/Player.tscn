@@ -111,10 +111,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b00go"]
-size = Vector2(19, 32)
+size = Vector2(18, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_044e1"]
-size = Vector2(27, 35)
+size = Vector2(18, 25)
 
 [node name="Player" type="CharacterBody2D" unique_id=160008220 groups=["player"]]
 motion_mode = 1
@@ -126,13 +126,14 @@ sprite_frames = SubResource("SpriteFrames_b00go")
 animation = &"idle_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489140582]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_b00go")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=943803678]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1735097235]
-position = Vector2(-0.5, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_044e1")
 
 [node name="Orbit" type="Node2D" parent="." unique_id=744397457]
