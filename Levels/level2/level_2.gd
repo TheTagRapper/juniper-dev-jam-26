@@ -19,3 +19,10 @@ func _process(delta):
 		if get_tree().get_node_count_in_group("enemy") <= 0:
 			print("level ended")
 			#change the scene to next level over here
+			get_tree().change_scene_to_file("res://Levels/level3/level3.tscn")
+
+
+
+func _on_timer_timeout() -> void:
+	$LevelIndicator.visible = false 
+	pass # Replace with function body.
