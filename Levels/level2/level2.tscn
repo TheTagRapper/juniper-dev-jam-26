@@ -50,6 +50,10 @@ position = Vector2(679, 199.5)
 scale = Vector2(1, 17.859999)
 shape = SubResource("RectangleShape2D_xhovo")
 
+[node name="Player" parent="." unique_id=160008220 instance=ExtResource("7_0dqmy")]
+position = Vector2(110, -53)
+scale = Vector2(2, 2)
+
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("3_kgifd")]
 position = Vector2(-625, -315)
 spawn_area_width = 625.0
@@ -64,10 +68,6 @@ position = Vector2(-560, -237)
 edges = [NodePath("../Left"), NodePath("../Right"), NodePath("../Top"), NodePath("../Bottom")]
 icons = Array[Texture2D]([ExtResource("5_lh3h4"), ExtResource("6_bxc0f"), ExtResource("7_xhovo")])
 weapon_pool_ENUMS = Array[int]([0, 3, 1])
-
-[node name="Player" parent="." unique_id=160008220 instance=ExtResource("7_0dqmy")]
-position = Vector2(110, -53)
-scale = Vector2(2, 2)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1305992106]
 stream = ExtResource("8_lrklw")
