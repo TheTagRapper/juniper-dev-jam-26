@@ -61,10 +61,10 @@ func _physics_process(delta: float) -> void:
 		$Orbit.swap_weapons(1)
 	elif Input.is_action_just_pressed("select_second_weapon"):
 		$Orbit.swap_weapons(2)
-	elif Input.is_action_just_pressed("select_third_weapon"):
-		$Orbit.swap_weapons(3)
-	elif Input.is_action_just_pressed("select_fourth_weapon"):
-		$Orbit.swap_weapons(4)
+	#elif Input.is_action_just_pressed("select_third_weapon"):
+		#$Orbit.swap_weapons(3)
+	#elif Input.is_action_just_pressed("select_fourth_weapon"):
+		#$Orbit.swap_weapons(4)
 	
 	$Orbit.update_weapon_position(delta)
 	

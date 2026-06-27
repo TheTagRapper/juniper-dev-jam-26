@@ -6,9 +6,9 @@ var orbit_speed
 var orbit_distance
 var orbit_time
 
-var weapon_inv = [null, null, null, null]
+var weapon_inv = [null, null]
 var holding_index = 0
-var stack_of_free_indexes = [3, 2, 1, 0] # CHANGE AS WEAPONS CAN NO LONGER BREAK
+var stack_of_free_indexes = [1, 0] # CHANGE AS WEAPONS CAN NO LONGER BREAK
 var no_of_weapons = 0
 
 
@@ -101,8 +101,9 @@ func remove_weapon(weapon_index : int):
 	weapon_inv[weapon_index].queue_free()
 	weapon_inv[weapon_index] = null
 	stack_of_free_indexes.push_back(weapon_index)
-	
-	for m in range(0,4):
+	stack_of_free_indexes.sort()
+	stack_of_free_indexes.reverse() # this isnt a stack anymore but it's ok bc the bug is fixed
+	for m in range(0,2):
 		if weapon_inv[m] != null:
 			holding_index = m
 			game_hud.get_node("weapon_selector").update_active_visual(holding_index)
