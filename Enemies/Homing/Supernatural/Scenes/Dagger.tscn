@@ -7,8 +7,10 @@
 size = Vector2(33.333332, 23.333332)
 
 [node name="Dagger" type="Node2D" unique_id=1087594047]
+scale = Vector2(2, 2)
 
 [node name="HomingProjectile" parent="." unique_id=468660561 groups=["ENEMY_WEAPON"] instance=ExtResource("1_5rag7")]
+speed = 1.0
 dmg = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="HomingProjectile" unique_id=603826237]

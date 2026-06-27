@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bhcths40dhla8"]
+
+[ext_resource type="Script" uid="uid://c3ajrssbey5rd" path="res://Levels/level3/level_3.gd" id="1_lmno1"]
+[ext_resource type="Texture2D" uid="uid://b1gpy1ly5w7ts" path="res://images/temp_background.png" id="2_mkcnn"]
+[ext_resource type="PackedScene" uid="uid://bnebbodc2u6y4" path="res://Enemies/EnemySpawner.tscn" id="3_0a52j"]
+[ext_resource type="PackedScene" uid="uid://blkqg6rid0oyu" path="res://Machine/Scenes/machine.tscn" id="4_alvpq"]
+[ext_resource type="Texture2D" uid="uid://cs03ivudvsw3c" path="res://Machine/Sprites/sword.png" id="5_oqfb1"]
+[ext_resource type="Texture2D" uid="uid://tt6q4bpskxx4" path="res://Weapons/Ranged/sprites/revolver.png" id="6_dbi47"]
+[ext_resource type="PackedScene" uid="uid://dt1fft8246tya" path="res://Player/Scenes/Player.tscn" id="7_43cb0"]
+[ext_resource type="Texture2D" uid="uid://cq7wlyceim0pr" path="res://Machine/Sprites/gun.png" id="7_mkcnn"]
+[ext_resource type="AudioStream" uid="uid://cbkacae8k5xnd" path="res://music/Vampire spinsters.wav" id="8_47twp"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4k2my"]
+a = Vector2(-2, -2)
+b = Vector2(-0.5, 318.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_044e1"]
+a = Vector2(36, 41.5)
+b = Vector2(666.5, 39.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gc2l0"]
+a = Vector2(667.5, 360.5)
+b = Vector2(37.5, 360.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_yax38"]
+a = Vector2(667, 358.5)
+b = Vector2(665.5, 39.5)
+
+[node name="Level1" type="Node2D" unique_id=1787490979]
+script = ExtResource("1_lmno1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1401126607]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -399.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("2_mkcnn")
+stretch_mode = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect" unique_id=1855237787]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=1283621605]
+position = Vector2(38, 42.5)
+shape = SubResource("SegmentShape2D_4k2my")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=438932460]
+shape = SubResource("SegmentShape2D_044e1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=660634964]
+shape = SubResource("SegmentShape2D_gc2l0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=313498546]
+shape = SubResource("SegmentShape2D_yax38")
+
+[node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("3_0a52j")]
+position = Vector2(-625, -315)
+spawn_area_width = 625.0
+spawn_area_height = 625.0
+min_dist_from_player = 300.0
+subwave_cooldown = 10.0
+subwave_sizes = Array[int]([2, 5, 10])
+enemy_list = Array[int]([2, 4])
+
+[node name="Node2D" parent="." unique_id=1409910503 node_paths=PackedStringArray("edges") instance=ExtResource("4_alvpq")]
+position = Vector2(-560, -237)
+edges = [NodePath("../Left"), NodePath("../Right"), NodePath("../Top"), NodePath("../Bottom")]
+icons = Array[Texture2D]([ExtResource("5_oqfb1"), ExtResource("6_dbi47"), ExtResource("7_mkcnn")])
+weapon_pool_ENUMS = Array[int]([0, 3, 1])
+
+[node name="Player" parent="." unique_id=160008220 instance=ExtResource("7_43cb0")]
+position = Vector2(110, -53)
+scale = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1305992106]
+stream = ExtResource("8_47twp")
+volume_db = -6.197
+autoplay = true
+
+[node name="Top" type="Marker2D" parent="." unique_id=821072274]
+position = Vector2(0, -319)
+rotation = 1.5707964
+
+[node name="Bottom" type="Marker2D" parent="." unique_id=1157276418]
+position = Vector2(-6, 314)
+rotation = 4.712389
+
+[node name="Left" type="Marker2D" parent="." unique_id=1992413520]
+position = Vector2(-625, 0)
+
+[node name="Right" type="Marker2D" parent="." unique_id=1309948094]
+position = Vector2(635, 7)
+rotation = 3.1415927
