@@ -60,7 +60,7 @@ shape = SubResource("SegmentShape2D_yax38")
 spawn_area_width = 625.0
 spawn_area_height = 625.0
 min_dist_from_player = 300.0
-subwave_cooldown = 10.0
+subwave_cooldown = 3.0
 subwave_sizes = Array[int]([3, 4])
 enemy_list = Array[int]([3])
 
