@@ -66,8 +66,9 @@ func spawn_enemy():
 	var enemy = pick_enemy().instantiate()
 	add_child(enemy)
 	enemy.position = pos
-	enemy.add_to_group("enemy")
+	#enemy.add_to_group("enemy")
 	enemy.reparent(get_tree().root)
+	print("No of Enemies: " + str(get_tree().get_node_count_in_group("enemy")))
 	enemies_spawned_in_wave += 1
 	if enemies_spawned_in_wave >= subwave_sizes[subwave_index]:
 		spawning = false
@@ -79,15 +80,17 @@ func spawn_enemy():
 
 func _process(delta: float) -> void:
 	
-	
-	if subwave_cooldown_remaining <= 0 and subwaves_remaining > 0:
+	var enemy_count = get_tree().get_node_count_in_group("enemy")
+	#print(enemy_count)
+	if subwave_cooldown_remaining <= 0 and subwaves_remaining > 0 and enemy_count <= 0:
 		spawning = true
 		subwave_cooldown_remaining = subwave_cooldown
 		subwaves_remaining -= 1
 	
 	if spawning:
 		spawn_enemy()
-	else:
+		print("Enemy: " + str(get_tree().get_nodes_in_group("enemy")))
+	elif enemy_count <= 0:
 		subwave_cooldown_remaining -= delta
 		
 

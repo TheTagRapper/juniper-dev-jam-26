@@ -57,15 +57,17 @@ shape = SubResource("SegmentShape2D_gc2l0")
 shape = SubResource("SegmentShape2D_yax38")
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("1_1viim")]
-spawn_area_width = 1270.0
-spawn_area_height = 642.0
+position = Vector2(-625, -315)
+spawn_area_width = 625.0
+spawn_area_height = 625.0
 min_dist_from_player = 300.0
 subwave_cooldown = 10.0
 subwave_sizes = Array[int]([3, 4])
 enemy_list = Array[int]([3])
 
-[node name="Node2D" parent="." unique_id=1409910503 instance=ExtResource("1_n2r6e")]
+[node name="Node2D" parent="." unique_id=1409910503 node_paths=PackedStringArray("edges") instance=ExtResource("1_n2r6e")]
 position = Vector2(-560, -237)
+edges = [NodePath("../Left"), NodePath("../Right"), NodePath("../Top"), NodePath("../Bottom")]
 icons = Array[Texture2D]([ExtResource("5_gk37c"), ExtResource("6_122jk")])
 weapon_pool_ENUMS = Array[int]([0, 3])
 
@@ -77,3 +79,18 @@ scale = Vector2(2, 2)
 stream = ExtResource("5_m1sb4")
 volume_db = -6.197
 autoplay = true
+
+[node name="Top" type="Marker2D" parent="." unique_id=821072274]
+position = Vector2(0, -319)
+rotation = 1.5707964
+
+[node name="Bottom" type="Marker2D" parent="." unique_id=1157276418]
+position = Vector2(-6, 314)
+rotation = 4.712389
+
+[node name="Left" type="Marker2D" parent="." unique_id=1992413520]
+position = Vector2(-625, 0)
+
+[node name="Right" type="Marker2D" parent="." unique_id=1309948094]
+position = Vector2(635, 7)
+rotation = 3.1415927

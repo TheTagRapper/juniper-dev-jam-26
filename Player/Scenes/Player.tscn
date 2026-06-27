@@ -148,10 +148,11 @@ grow_horizontal = 1
 grow_vertical = 1
 size_flags_horizontal = 0
 
-[node name="Emitter" parent="." unique_id=899586957 groups=["PlayerEmitter"] instance=ExtResource("7_wyx6f")]
-
 [node name="Camera2D" parent="." unique_id=2121469591 instance=ExtResource("8_n15od")]
 zoom = Vector2(1, 1)
+
+[node name="Emitter" parent="." unique_id=899586957 groups=["PlayerEmitter"] instance=ExtResource("7_wyx6f")]
+z_index = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
