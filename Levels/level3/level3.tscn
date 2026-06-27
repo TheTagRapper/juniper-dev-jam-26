@@ -95,3 +95,16 @@ position = Vector2(-625, 0)
 [node name="Right" type="Marker2D" parent="." unique_id=1309948094]
 position = Vector2(635, 7)
 rotation = 3.1415927
+
+[node name="LevelIndicator" type="RichTextLabel" parent="." unique_id=1372438275]
+offset_left = -24.0
+offset_top = -256.0
+offset_right = 37.0
+offset_bottom = -222.0
+text = "Level 3
+"
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="." unique_id=578787685]
+wait_time = 0.948
+autostart = true
