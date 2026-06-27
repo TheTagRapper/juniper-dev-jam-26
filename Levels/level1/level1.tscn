@@ -57,10 +57,11 @@ shape = SubResource("SegmentShape2D_gc2l0")
 shape = SubResource("SegmentShape2D_yax38")
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("1_1viim")]
+position = Vector2(-625, -315)
 spawn_area_width = 625.0
 spawn_area_height = 625.0
 min_dist_from_player = 300.0
-subwave_cooldown = 3.0
+subwave_cooldown = 10.0
 subwave_sizes = Array[int]([3, 4])
 enemy_list = Array[int]([3])
 

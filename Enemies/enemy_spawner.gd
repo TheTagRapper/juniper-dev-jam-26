@@ -90,7 +90,7 @@ func _process(delta: float) -> void:
 	if spawning:
 		spawn_enemy()
 		print("Enemy: " + str(get_tree().get_nodes_in_group("enemy")))
-	else:
+	elif enemy_count <= 0:
 		subwave_cooldown_remaining -= delta
 		
 
