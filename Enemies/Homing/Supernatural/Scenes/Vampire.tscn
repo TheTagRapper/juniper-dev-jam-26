@@ -27,7 +27,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uej70"]
 size = Vector2(65, 62.5)
 
-[node name="Vampire" type="Node2D" unique_id=1591587779]
+[node name="Vampire" type="Node2D" unique_id=1591587779 groups=["enemy"]]
 
 [node name="Enemy" parent="." unique_id=1848215361 groups=["enemy"] instance=ExtResource("1_q3wls")]
 projectile_tscn = ExtResource("2_vv4u6")

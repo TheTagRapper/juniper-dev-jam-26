@@ -13,6 +13,8 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		#add player damage function here
 		body.take_damage(bullet_damage)
+	if body.is_in_group("enemy"):
+		return
 	var parent = get_parent()
 	if parent != null:
 		get_parent().queue_free()
