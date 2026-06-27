@@ -10,12 +10,12 @@ var homing : bool
 
 func _ready():
 	target = get_tree().get_first_node_in_group("player")
-	direction = global_position.direction_to(target.position)
+	direction = global_position.direction_to(target.global_position)
 	homing = true
 	look_at(target.global_position)
 
 func rotate_to_target():
-	var to_target = target.position - position
+	var to_target = target.global_position - global_position
 	var angle = direction.angle_to(to_target.normalized())
 	if absf(angle) > 0.01:
 		direction = direction.rotated(clampf(angle, -turn_limit, turn_limit))
@@ -24,7 +24,8 @@ func rotate_to_target():
 
 func move():
 	if direction:
-		global_position += direction * speed;
+		look_at(get_parent().position + direction * speed)
+		get_parent().position += direction * speed
 
 #func check_bounds(): # change for room
 	#if (global_position.x < 0 || global_position.y < 0 
