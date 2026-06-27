@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 				if held.weapon_name == held.WEAPONS.AK47 and held.ammo > 0:
 					isready = false
 					shoot()
-					$cooldown.wait_time = 60.0 / 200.0
+					$cooldown.wait_time = 60.0 / 400.0
 					$cooldown.start()
 
 func get_held():
