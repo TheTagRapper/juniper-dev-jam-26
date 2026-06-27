@@ -31,4 +31,4 @@ func take_damage(dmg1:float):
 	health-=dmg1
 	print("EN HEALTH: " + str(health))
 	if health<=0:
-		queue_free()
+		get_parent().queue_free()

@@ -34,3 +34,5 @@ func fire():
 
 func take_damage(dmg):
 	health -= dmg
+	if health<=0:
+		get_parent().queue_free()

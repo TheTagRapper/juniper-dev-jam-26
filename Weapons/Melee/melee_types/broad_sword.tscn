@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://o5nuyei2w50o" path="res://Weapons/Melee/melee_types/sprites/broadsword.png" id="2_nq1qt"]
 
 [node name="broad_sword" unique_id=635360489 instance=ExtResource("1_2nimv")]
-dmg = 25
+dmg = 30
 durability = 15
 
 [node name="Sprite2D" parent="." index="0" unique_id=1046098205]

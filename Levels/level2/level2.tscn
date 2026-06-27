@@ -10,21 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cq7wlyceim0pr" path="res://Machine/Sprites/gun.png" id="7_xhovo"]
 [ext_resource type="AudioStream" uid="uid://cbkacae8k5xnd" path="res://music/Vampire spinsters.wav" id="8_lrklw"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_4k2my"]
-a = Vector2(-2, -2)
-b = Vector2(-0.5, 318.5)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_044e1"]
-a = Vector2(36, 41.5)
-b = Vector2(666.5, 39.5)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_gc2l0"]
-a = Vector2(667.5, 360.5)
-b = Vector2(37.5, 360.5)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_yax38"]
-a = Vector2(667, 358.5)
-b = Vector2(665.5, 39.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhovo"]
 
 [node name="Level1" type="Node2D" unique_id=1787490979]
 script = ExtResource("1_gxooh")
@@ -42,27 +28,34 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_wuw8o")
 stretch_mode = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect" unique_id=1855237787]
+[node name="StaticBody2D" type="StaticBody2D" parent="TextureRect" unique_id=29369085 groups=["world"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=1283621605]
-position = Vector2(38, 42.5)
-shape = SubResource("SegmentShape2D_4k2my")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=1338647973 groups=["world"]]
+position = Vector2(350, 29)
+scale = Vector2(33.76, 1)
+shape = SubResource("RectangleShape2D_xhovo")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=438932460]
-shape = SubResource("SegmentShape2D_044e1")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=427700317 groups=["world"]]
+position = Vector2(25.5, 198)
+scale = Vector2(1, 17.859999)
+shape = SubResource("RectangleShape2D_xhovo")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=660634964]
-shape = SubResource("SegmentShape2D_gc2l0")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=1256749879 groups=["world"]]
+position = Vector2(350, 371.5)
+scale = Vector2(33.76, 1)
+shape = SubResource("RectangleShape2D_xhovo")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=313498546]
-shape = SubResource("SegmentShape2D_yax38")
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TextureRect/StaticBody2D" unique_id=1448794931 groups=["world"]]
+position = Vector2(679, 199.5)
+scale = Vector2(1, 17.859999)
+shape = SubResource("RectangleShape2D_xhovo")
 
 [node name="EnemySpawner" parent="." unique_id=95847506 instance=ExtResource("3_kgifd")]
 position = Vector2(-625, -315)
 spawn_area_width = 625.0
 spawn_area_height = 625.0
 min_dist_from_player = 300.0
-subwave_cooldown = 10.0
+subwave_cooldown = 6.0
 subwave_sizes = Array[int]([2, 5, 10])
 enemy_list = Array[int]([1])
 

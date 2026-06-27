@@ -109,3 +109,5 @@ func shoot():
 
 func take_damage(dmg:float):
 	health-=dmg
+	if health<=0:
+		get_parent().queue_free()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tt6q4bpskxx4" path="res://Weapons/Ranged/sprites/revolver.png" id="2_jm45h"]
 
 [node name="pistol" unique_id=417748901 instance=ExtResource("1_mnjsj")]
-dmg = 15
+dmg = 30
 ammo = 6
 weapon_name = 1
 

@@ -30,6 +30,7 @@ size = Vector2(18, 17.5)
 scale = Vector2(3, 3)
 
 [node name="Enemy" parent="." unique_id=1848215361 groups=["enemy"] instance=ExtResource("1_j5sh5")]
+cooldown = 3.0
 projectile_tscn = ExtResource("2_jxyr5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1774531266]

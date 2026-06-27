@@ -51,6 +51,11 @@ func _process(delta: float) -> void:
 					shoot()
 					$cooldown.wait_time = 60.0 / 500.0
 					$cooldown.start()
+				if held.weapon_name == held.WEAPONS.AK47 and held.ammo > 0:
+					isready = false
+					shoot()
+					$cooldown.wait_time = 60.0 / 200.0
+					$cooldown.start()
 
 func get_held():
 	var orbit_system = get_parent().get_node("Orbit")
