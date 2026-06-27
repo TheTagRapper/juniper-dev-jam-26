@@ -55,18 +55,31 @@ func update_weapon_position(delta: float) -> void:
 					remove_weapon(i)
 					return
 			
-			
-			var player_position = get_parent().global_position
+			var player_position = get_parent().global_position	
 			
 			#if weapon_inv[i].needs_detachment == true:
 			#	remove_weapon(i)
 			# Check if it is being held in the hand
 			if holding_index == i:
+				
+				#print(get_parent().direction)
+				#var marker_selected = get_parent().get_node("left")
+				#if get_parent().direction == "right":
+					#marker_selected = get_parent().get_node("right")
+					#weapon_inv[i].get_node("Sprite2D").flip_h = true
+			
 				# Point in a circle around the gun.
-				var target_angle = (get_global_mouse_position() - get_parent().global_position).angle()
+				var target_angle = (get_global_mouse_position() - get_parent().global_position).angle() 
+				target_angle = clampf(target_angle, -90.0, 90.0)
 				weapon_inv[i].rotation = lerp_angle(weapon_inv[i].rotation, target_angle, delta * 10)
 				weapon_inv[i].global_position.x = player_position.x + radius * cos(weapon_inv[i].rotation)
 				weapon_inv[i].global_position.y = player_position.y + radius * sin(weapon_inv[i].rotation)
+			
+				if get_global_mouse_position().x < player_position.x:
+					weapon_inv[i].get_node("Sprite2D").flip_v = true
+				else:
+					weapon_inv[i].get_node("Sprite2D").flip_v = false
+			
 			# Letting them orbit around
 			else:
 				# Need to make the orbits uniform

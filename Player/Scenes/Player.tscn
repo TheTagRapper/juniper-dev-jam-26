@@ -123,7 +123,7 @@ script = ExtResource("1_7jgbj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2125088442]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_b00go")
-animation = &"walking_up"
+animation = &"idle_left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1489140582]
 shape = SubResource("RectangleShape2D_b00go")
@@ -153,6 +153,12 @@ zoom = Vector2(1, 1)
 
 [node name="Emitter" parent="." unique_id=899586957 groups=["PlayerEmitter"] instance=ExtResource("7_wyx6f")]
 z_index = 1
+
+[node name="left" type="Marker2D" parent="." unique_id=1495338633]
+position = Vector2(-16, 0)
+
+[node name="right" type="Marker2D" parent="." unique_id=1642907959]
+position = Vector2(8, 0)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

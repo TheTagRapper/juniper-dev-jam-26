@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	game_hud.get_node("healthbar").value = health
 
 	# Selecting Movement
-	movement_state = "idle"
+	#movement_state = "idle"
 	if Input.is_action_pressed("move_right"):
 		position.x += SPEED * delta
 		movement_state = "walking"
